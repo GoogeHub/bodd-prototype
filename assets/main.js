@@ -79,12 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const label = document.getElementById('footer-region-label');
   if (saved && label) label.textContent = labels[saved] || saved;
 
-  // Show region modal only on home page, only on first visit
-  const isHome = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/');
-  if (isHome && !saved) {
-    showRegionModal();
-  }
-
   // Region mismatch demo — triggered by ?demo=region in URL
   const params = new URLSearchParams(window.location.search);
   if (params.get('demo') === 'region') {
