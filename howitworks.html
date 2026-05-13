@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How it works — Bodd</title>
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+/* ── Flow steps ── */
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 2.5rem;
+  position: relative;
+}
+.flow-step {
+  padding: 1.75rem 1.5rem 1.75rem 0;
+  border-left: 2px solid var(--border);
+  padding-left: 1.5rem;
+  position: relative;
+}
+.flow-step:first-child { border-left: none; padding-left: 0; }
+.flow-num {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+  color: var(--blue); margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+.flow-title {
+  font-size: 17px; font-weight: 600; letter-spacing: -0.02em;
+  color: var(--white); margin-bottom: 0.5rem; line-height: 1.25;
+}
+.flow-body {
+  font-size: 13px; color: var(--text-muted); line-height: 1.65;
+}
+
+/* ── System diagram ── */
+.sys-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 0;
+  align-items: center;
+  margin: 2.5rem 0 0;
+}
+.sys-node {
+  background: var(--bg-card);
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+}
+.sys-node-label {
+  font-size: 10px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--text-dim); margin-bottom: 0.5rem;
+}
+.sys-node-name {
+  font-size: 16px; font-weight: 600; letter-spacing: -0.02em;
+  color: var(--white); margin-bottom: 0.375rem;
+}
+.sys-node-desc {
+  font-size: 12px; color: var(--text-muted); line-height: 1.5;
+}
+.sys-arrow {
+  text-align: center; color: var(--border); font-size: 20px;
+  padding: 0 0.5rem; user-select: none;
+}
+.sys-node.primary {
+  border-color: rgba(43,127,255,0.35);
+  background: rgba(43,127,255,0.05);
+}
+
+/* ── Module strip ── */
+.module-strip {
+  display: flex; gap: 0.625rem; flex-wrap: wrap; margin-top: 1.75rem;
+}
+.mod-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bg-card); border: 0.5px solid var(--border);
+  border-radius: 8px; padding: 6px 12px;
+  font-size: 12px; font-weight: 500; color: var(--text-muted);
+}
+.mod-tag.active {
+  border-color: rgba(43,127,255,0.4);
+  background: rgba(43,127,255,0.06);
+  color: var(--white);
+}
+.mod-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--border); flex-shrink: 0;
+}
+.mod-tag.active .mod-dot { background: var(--blue); }
+
+/* ── Deep-dive cards ── */
+.deepdive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.deepdive-card {
+  background: var(--bg-card);
+  border: 0.5px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  display: flex; flex-direction: column;
+  transition: border-color 0.15s;
+  text-decoration: none;
+  cursor: pointer;
+}
+.deepdive-card:hover { border-color: rgba(255,255,255,0.25); }
+.deepdive-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: rgba(43,127,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--blue); margin-bottom: 1.25rem; flex-shrink: 0;
+}
+.deepdive-tag {
+  font-size: 10px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--blue); margin-bottom: 0.5rem;
+}
+.deepdive-title {
+  font-size: 17px; font-weight: 600; letter-spacing: -0.02em;
+  color: var(--white); margin-bottom: 0.625rem;
+}
+.deepdive-desc {
+  font-size: 13px; color: var(--text-muted); line-height: 1.65;
+  flex: 1;
+}
+.deepdive-link {
+  margin-top: 1.5rem; font-size: 13px; font-weight: 500;
+  color: var(--white); display: flex; align-items: center; gap: 4px;
+}
+
+@media (max-width: 900px) {
+  .flow-grid { grid-template-columns: 1fr 1fr; }
+  .flow-step { border-left: none; padding-left: 0; border-top: 2px solid var(--border); padding-top: 1.5rem; }
+  .flow-step:first-child, .flow-step:nth-child(2) { border-top: none; }
+  .sys-row { grid-template-columns: 1fr; gap: 0.5rem; }
+  .sys-arrow { transform: rotate(90deg); }
+  .deepdive-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .flow-grid { grid-template-columns: 1fr; }
+  .flow-step { border-top: 2px solid var(--border); border-left: none; padding-left: 0; padding-top: 1.5rem; }
+  .flow-step:first-child { border-top: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Region selector modal -->
+<div id="region-modal" style="position:fixed;inset:0;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);z-index:9999;display:none;align-items:center;justify-content:center;padding:1.5rem;-webkit-overflow-scrolling:touch;">
+  <div style="background:var(--bg-card);border-radius:16px;padding:2.5rem 2rem;max-width:380px;width:100%;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,0.2);">
+    <div style="width:44px;height:44px;background:var(--gray-50);border:0.5px solid var(--gray-200);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    </div>
+    <h3 style="font-size:20px;font-weight:500;letter-spacing:-0.02em;margin-bottom:0.5rem;">Select your region</h3>
+    <p style="font-size:13px;color:var(--gray-500);line-height:1.6;margin-bottom:1.75rem;">Regulatory information and product availability may vary by region.</p>
+    <div style="display:flex;flex-direction:column;gap:0.625rem;">
+      <button onclick="selectRegion('au')" style="width:100%;padding:0.875rem 1rem;background:var(--black);color:var(--white);border:none;border-radius:10px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:space-between;">
+        <span>Australia & New Zealand</span>
+        <span style="font-size:12px;opacity:0.5;">TGA registered</span>
+      </button>
+      <button onclick="selectRegion('us')" style="width:100%;padding:0.875rem 1rem;background:var(--gray-50);color:var(--white);border:0.5px solid var(--gray-200);border-radius:10px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:space-between;">
+        <span>United States</span>
+        <span style="font-size:12px;color:var(--gray-400);">FDA — in progress</span>
+      </button>
+      <button onclick="selectRegion('eu')" style="width:100%;padding:0.875rem 1rem;background:var(--gray-50);color:var(--white);border:0.5px solid var(--gray-200);border-radius:10px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:space-between;">
+        <span>Europe</span>
+        <span style="font-size:12px;color:var(--gray-400);">CE Mark — in progress</span>
+      </button>
+    </div>
+    <p style="font-size:11px;color:var(--gray-400);margin-top:1.25rem;">You can change your region at any time from the footer.</p>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-logo-wrap">
+    <div class="nav-logo" onclick="window.location.href='index.html'">Bodd</div>
+    <div class="dropdown" style="left:0;">
+      <div class="dropdown-inner" style="min-width:170px;">
+        <a href="index.html">Homepage — v1</a>
+        <a href="index_2.html">Homepage — v2</a>
+        <a href="index_3.html">Homepage — v3</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-inner">
+  <div class="nav-main">
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='uniforms.html'">Uniforms</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="defence.html">Defence &amp; Military</a>
+          <a href="police.html">Police &amp; Law Enforcement</a>
+          <a href="fire.html">Fire &amp; Rescue</a>
+          <a href="ambulance.html">Ambulance &amp; Paramedics</a>
+          <a href="aviation.html">Aviation</a>
+          <a href="themeparks.html">Theme Parks &amp; Entertainment</a>
+          <a href="ballistics.html">Ballistics &amp; Armour</a>
+          <a href="workwear.html">Workwear &amp; Industrial</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='retail.html'">Retail</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="tailoring.html">Tailoring &amp; MTM</a>
+          <a href="sporting.html">High-Function &amp; Sporting Apparel</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='health.html'">Health &amp; Wellness</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="pharmacy.html">Retail Pharmacy</a>
+          <a href="weightloss.html">Weight Management</a>
+          <a href="gyms.html">Gyms &amp; Fitness Centres</a>
+          <a href="longevity.html">Longevity &amp; Wellness Centres</a>
+          <a href="clinical.html">Allied Health &amp; GP Clinics</a>
+          <a href="defencehealth.html">Defence &amp; Military Health</a>
+          <a href="corporate.html">Corporate Wellness</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='howitworks.html'">How it works</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="platform.html">The Platform</a>
+          <a href="technology.html">Product &amp; Technology</a>
+          <a href="security.html">Data &amp; Security</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='about.html'">About</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="about.html">About Bodd</a>
+          <a href="careers.html">Careers</a>
+          <a href="news.html">News</a>
+          <a href="press.html">Press &amp; Media</a>
+        </div>
+      </div>
+    </div>
+    <span class="nav-link" onclick="window.location.href='contact.html'">Contact</span>
+    <a class="nav-mybodd" href="mybodd.html"><svg width="12" height="20" viewBox="0 0 28 46" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="5" r="4.5"/><rect x="9" y="11" width="10" height="17" rx="3"/><rect class="bi-leg-l" x="8.5" y="26" width="4.5" height="19" rx="2.25"/><rect class="bi-leg-r" x="15" y="26" width="4.5" height="19" rx="2.25"/><rect class="bi-arm-l" x="-3" y="12" width="11" height="4" rx="2"/><rect class="bi-arm-r" x="20" y="12" width="11" height="4" rx="2"/></svg>MyBodd</a>
+  </div>
+  </div><!-- /nav-inner -->
+  <div class="nav-right">
+    <div class="nav-item">
+      <span class="nav-login">Log in</span>
+      <div class="dropdown" style="left:auto;right:0;">
+        <div class="dropdown-inner" style="min-width:150px;">
+          <a href="https://hub.bodd.com" target="_blank">BoddHub</a>
+          <a href="https://my.bodd.com" target="_blank">MyBodd</a>
+        </div>
+      </div>
+    </div>
+    <span class="nav-cta" onclick="window.location.href='demo.html'">Book a Demo</span>
+  </div>
+
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-inner">
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>Uniforms</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="uniforms.html">Overview</a>
+        <div class="sub-label">Sectors</div>
+        <a href="defence.html">Defence &amp; Military</a>
+        <a href="police.html">Police &amp; Law Enforcement</a>
+        <a href="fire.html">Fire &amp; Rescue</a>
+        <a href="ambulance.html">Ambulance &amp; Paramedics</a>
+        <a href="aviation.html">Aviation</a>
+        <a href="themeparks.html">Theme Parks &amp; Entertainment</a>
+        <a href="ballistics.html">Ballistics &amp; Armour</a>
+        <a href="workwear.html">Workwear &amp; Industrial</a>
+      </div>
+    </div>
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>Retail</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="retail.html">Overview</a>
+        <div class="sub-label">Sectors</div>
+        <a href="tailoring.html">Tailoring &amp; MTM</a>
+        <a href="sporting.html">High-Function &amp; Sporting Apparel</a>
+      </div>
+    </div>
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>Health &amp; Wellness</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="health.html">Overview</a>
+        <div class="sub-label">Sectors</div>
+        <a href="pharmacy.html">Retail Pharmacy</a>
+        <a href="weightloss.html">Weight Management</a>
+        <a href="gyms.html">Gyms &amp; Fitness Centres</a>
+        <a href="longevity.html">Longevity &amp; Wellness Centres</a>
+        <a href="clinical.html">Allied Health &amp; GP Clinics</a>
+        <a href="defencehealth.html">Defence &amp; Military Health</a>
+        <a href="corporate.html">Corporate Wellness</a>
+      </div>
+    </div>
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>How it works</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="howitworks.html">Overview</a>
+        <a href="platform.html">The Platform</a>
+        <a href="technology.html">Product &amp; Technology</a>
+        <a href="security.html">Data &amp; Security</a>
+      </div>
+    </div>
+
+    <a class="mobile-top-link" href="about.html">About</a>
+    <a class="mobile-top-link" href="contact.html">Contact</a>
+    <a class="mobile-top-link" href="mybodd.html">MyBodd</a>
+    <a class="mobile-cta" href="demo.html">Book a Demo</a>
+
+  </div>
+</div>
+
+
+<!-- ─── HERO ─────────────────────────────────────────── -->
+<div class="hero">
+  <div class="breadcrumb"><span onclick="window.location.href='index.html'">Home</span> / How it works</div>
+  <h1>One connected system.<br>Built for scale.</h1>
+  <p>Bodd combines body scanning, software, and intelligence into a single enterprise platform. This page explains how the pieces connect — and what that means operationally for your organisation.</p>
+  <div style="display:flex;flex-wrap:wrap;gap:0.625rem;margin-top:1.5rem;align-items:center;">
+    <span class="btn btn-primary" onclick="window.location.href='demo.html'">Book a Demo</span>
+    <span class="btn btn-secondary" onclick="window.location.href='platform.html'">Explore the Platform →</span>
+  </div>
+</div>
+
+
+<!-- ─── DIFF BAR ──────────────────────────────────────── -->
+<div class="diff-bar">Deployed across defence forces, airlines, hospital networks, and fitness programmes · One platform · Many applications · Scales from a single scanner to a global fleet</div>
+
+
+<!-- ─── SECTION 1: WHAT BODD IS ──────────────────────── -->
+<div class="section">
+  <div class="section-label">The Bodd ecosystem</div>
+  <h2>Not just a scanner. Not just software.</h2>
+  <p class="body-text">Bodd is a connected system — hardware, software, and an intelligence layer — designed to work as a whole. Most organisations encounter it through a single, concrete problem: sizing a uniformed workforce, establishing a health baseline for recruits, or launching a body composition programme. Bodd solves that problem well. But the underlying system is built for more.</p>
+  <p class="body-text">At one end is the Bodd Body Scanner — a clinical-grade, self-serve device that captures precise 3D body data in under 30 seconds. That data flows into BoddHub, your organisation's secure enterprise dashboard, where intelligence modules translate measurements into decisions. The value isn't in any single component. It's in how they connect.</p>
+
+  <div class="sys-row">
+    <div class="sys-node">
+      <div class="sys-node-label">Hardware</div>
+      <div class="sys-node-name">Body Scanner</div>
+      <div class="sys-node-desc">Up to 400 measurements. Under 30 seconds. Self-serve, no specialist required.</div>
+    </div>
+    <div class="sys-arrow">→</div>
+    <div class="sys-node primary">
+      <div class="sys-node-label">Enterprise platform</div>
+      <div class="sys-node-name">BoddHub</div>
+      <div class="sys-node-desc">Your secure dashboard. Intelligence modules, workflows, and reporting — in your region.</div>
+    </div>
+    <div class="sys-arrow">→</div>
+    <div class="sys-node">
+      <div class="sys-node-label">Output</div>
+      <div class="sys-node-name">Operational insight</div>
+      <div class="sys-node-desc">Sizing decisions, wellness baselines, body composition tracking, workforce analytics.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ─── SECTION 2: HOW IT WORKS ──────────────────────── -->
+<div class="section">
+  <div class="section-label">The flow</div>
+  <h2>From scan to decision in under a minute.</h2>
+  <p class="body-text">The path from a body scan to an actionable output is fast, automatic, and consistent — regardless of who's operating it, where it's deployed, or how many people are moving through it.</p>
+
+  <div class="flow-grid">
+    <div class="flow-step">
+      <div class="flow-num">01 — Scan</div>
+      <div class="flow-title">A person steps in front of the scanner.</div>
+      <div class="flow-body">In under 30 seconds, the Bodd Body Scanner captures up to 400 precise measurements — full body, feet, hands, and head. No trained operator. No changing room. No tape measure.</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">02 — Secure</div>
+      <div class="flow-title">Data routes to your instance.</div>
+      <div class="flow-body">Measurement data is sent immediately to your organisation's BoddHub instance — hosted in your region, on your infrastructure. No personally identifiable information is captured during the scan itself.</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">03 — Apply</div>
+      <div class="flow-title">The right intelligence activates.</div>
+      <div class="flow-body">The platform applies the intelligence module configured for your use case — SizeMatch for uniform procurement, Vitals for wellness indicators, Composition for body composition tracking. The output is always specific to your needs.</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">04 — Act</div>
+      <div class="flow-title">Your team has what it needs.</div>
+      <div class="flow-body">Sizing recommendations, wellness baselines, health trends, and operational dashboards — available immediately. Decisions that previously required weeks of manual work are now consistent and automatic.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ─── SECTION 3: MODULAR ────────────────────────────── -->
+<div class="section">
+  <div class="section-label">Built to grow with you</div>
+  <h2>Most organisations start with one problem to solve.</h2>
+  <p class="body-text">Whether it's equipping a uniformed workforce, onboarding new recruits, or running a health programme — Bodd is operational from day one for a single use case. As your requirements expand, additional intelligence modules can be activated within the same platform. No redeployment. No data migration. The system grows with you.</p>
+
+  <hr class="div">
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:0;">
+    <div>
+      <h3 style="font-size:19px;font-weight:600;letter-spacing:-0.02em;margin-bottom:0.75rem;">Start with a use case.</h3>
+      <p class="body-text" style="margin-bottom:1.25rem;">A typical deployment activates one or two modules matched to your immediate operational need. The scanner and platform are in place. Results are immediate.</p>
+      <div class="module-strip">
+        <div class="mod-tag active"><span class="mod-dot"></span>SizeMatch</div>
+        <div class="mod-tag"><span class="mod-dot"></span>Bodd Vitals</div>
+        <div class="mod-tag"><span class="mod-dot"></span>Composition</div>
+        <div class="mod-tag"><span class="mod-dot"></span>Bodd Core</div>
+        <div class="mod-tag"><span class="mod-dot"></span>Analytics</div>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-size:19px;font-weight:600;letter-spacing:-0.02em;margin-bottom:0.75rem;">Expand when you're ready.</h3>
+      <p class="body-text" style="margin-bottom:1.25rem;">Additional modules are activated within the same platform instance. The same scanner. The same data infrastructure. More value from the system already in place.</p>
+      <div class="module-strip">
+        <div class="mod-tag active"><span class="mod-dot"></span>SizeMatch</div>
+        <div class="mod-tag active"><span class="mod-dot"></span>Bodd Vitals</div>
+        <div class="mod-tag active"><span class="mod-dot"></span>Composition</div>
+        <div class="mod-tag active"><span class="mod-dot"></span>Bodd Core</div>
+        <div class="mod-tag"><span class="mod-dot"></span>Analytics</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="div">
+
+  <h3 style="font-size:19px;font-weight:600;letter-spacing:-0.02em;margin-bottom:0.75rem;">The longer it runs, the more valuable it becomes.</h3>
+  <p class="body-text">Each scan adds to your organisation's body of data. Over time, this becomes a strategic asset. Trend analysis across a workforce. Evidence of programme outcomes. Procurement intelligence based on real population sizing data. Operational planning informed by body data at a scale that wasn't previously possible.</p>
+  <p class="body-text">Individual scans create immediate operational efficiency. Accumulated data creates institutional intelligence.</p>
+</div>
+
+
+<!-- ─── SECTION 4: THREE LAYERS ──────────────────────── -->
+<div class="section">
+  <div class="section-label">Explore in depth</div>
+  <h2>Three distinct layers. One connected system.</h2>
+  <p class="body-text">The Bodd system is documented across three areas — each designed to be understood independently, but all part of the same connected whole.</p>
+
+  <div class="deepdive-grid">
+
+    <a class="deepdive-card" href="platform.html">
+      <div class="deepdive-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      </div>
+      <div class="deepdive-tag">Intelligence &amp; operations</div>
+      <div class="deepdive-title">The Platform</div>
+      <div class="deepdive-desc">BoddHub — your organisation's secure command centre. Intelligence modules, sizing workflows, wellness tracking, and operational reporting. This is where the long-term value of the system lives and compounds.</div>
+      <div class="deepdive-link">Explore the Platform →</div>
+    </a>
+
+    <a class="deepdive-card" href="technology.html">
+      <div class="deepdive-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+      </div>
+      <div class="deepdive-tag">Hardware &amp; implementation</div>
+      <div class="deepdive-title">Product &amp; Technology</div>
+      <div class="deepdive-desc">The Bodd Body Scanner — engineered with Bosch for enterprise environments. Self-serve, no specialist required. Covers hardware specifications, deployment models, integrations, and how the technology fits into your existing infrastructure.</div>
+      <div class="deepdive-link">Product &amp; Technology →</div>
+    </a>
+
+    <a class="deepdive-card" href="security.html">
+      <div class="deepdive-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <div class="deepdive-tag">Governance &amp; trust</div>
+      <div class="deepdive-title">Data &amp; Security</div>
+      <div class="deepdive-desc">Data handling is foundational to Bodd — not an afterthought. Regional data sovereignty, privacy architecture, access controls, and compliance certifications. Built for the requirements of defence, health, and enterprise environments.</div>
+      <div class="deepdive-link">Data &amp; Security →</div>
+    </a>
+
+  </div>
+</div>
+
+
+<!-- ─── SECTION 5: CTA GRID ───────────────────────────── -->
+<div class="section">
+  <div class="section-label">See what Bodd can do for your organisation</div>
+  <h2>Ready to go deeper?</h2>
+  <p class="lead">Explore how Bodd applies to your sector — or talk to our team about what a deployment would look like for you.</p>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;">
+
+    <div style="background:var(--gray-50);border:0.5px solid var(--gray-200);border-radius:12px;padding:1.75rem;display:flex;flex-direction:column;">
+      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);margin-bottom:0.75rem;">Explore by sector</div>
+      <div style="font-size:18px;font-weight:500;letter-spacing:-0.02em;margin-bottom:0.5rem;">Find your use case.</div>
+      <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:1.5rem;">Bodd is built for organisations that demand precision. Explore how it applies to your sector.</p>
+      <div style="display:flex;flex-direction:column;gap:0.625rem;margin-top:auto;">
+        <a href="uniforms.html" style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem;background:var(--bg-card);border:0.5px solid var(--border);border-radius:8px;text-decoration:none;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--white)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="display:flex;align-items:center;gap:0.625rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-dim);flex-shrink:0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span style="font-size:14px;font-weight:500;color:var(--white);">Uniforms &amp; Workforce</span>
+          </div>
+          <span style="font-size:12px;color:var(--text-dim);">→</span>
+        </a>
+        <a href="retail.html" style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem;background:var(--bg-card);border:0.5px solid var(--border);border-radius:8px;text-decoration:none;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--white)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="display:flex;align-items:center;gap:0.625rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-dim);flex-shrink:0;"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" x2="21" y1="6" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span style="font-size:14px;font-weight:500;color:var(--white);">Retail &amp; Apparel</span>
+          </div>
+          <span style="font-size:12px;color:var(--text-dim);">→</span>
+        </a>
+        <a href="health.html" style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem;background:var(--bg-card);border:0.5px solid var(--border);border-radius:8px;text-decoration:none;transition:border-color 0.15s;" onmouseover="this.style.borderColor='var(--white)'" onmouseout="this.style.borderColor='var(--border)'">
+          <div style="display:flex;align-items:center;gap:0.625rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-dim);flex-shrink:0;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <span style="font-size:14px;font-weight:500;color:var(--white);">Health &amp; Wellness</span>
+          </div>
+          <span style="font-size:12px;color:var(--text-dim);">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div style="background:var(--blue);border-radius:12px;padding:1.75rem;display:flex;flex-direction:column;">
+      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.55);margin-bottom:0.75rem;">Ready to move</div>
+      <div style="font-size:18px;font-weight:500;letter-spacing:-0.02em;color:white;margin-bottom:0.5rem;">See Bodd in action.</div>
+      <p style="font-size:13px;color:rgba(255,255,255,0.72);line-height:1.6;margin-bottom:1.75rem;">Talk to our team. We'll walk you through the platform, answer your questions, and scope what a deployment looks like for your organisation.</p>
+      <div style="margin-top:auto;display:flex;align-items:center;gap:1rem;">
+        <span class="btn" onclick="window.location.href='demo.html'" style="background:white;color:var(--blue);border:none;font-weight:600;flex-shrink:0;">Book a Demo →</span>
+        <div style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.4;">30–45 minutes, via video call</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<footer>
+  <div class="footer-inner">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:3rem;">
+      <div style="display:flex;flex-direction:column;">
+        <div class="footer-logo">Bodd</div>
+        <p class="footer-desc">The enterprise body intelligence platform. Built in Melbourne. Deployed globally.</p>
+        <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:5px;">
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;">PCIAW Technology Award 2025</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;">NAUMD Best Uniform Sizing Technology 2025</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;">Financial Review Most Innovative Company</div>
+        </div>
+        <div style="margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:5px;padding-top:2rem;">
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;justify-content:center;">Great Place<br>to Work®</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;justify-content:center;">MSIA<br>Member</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;justify-content:center;">Australian<br>Made</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Uniforms</h5>
+        <a href="uniforms.html">Overview</a>
+        <a href="defence.html">Defence &amp; Military</a>
+        <a href="police.html">Police &amp; Law Enforcement</a>
+        <a href="fire.html">Fire &amp; Rescue</a>
+        <a href="ambulance.html">Ambulance &amp; Paramedics</a>
+        <a href="aviation.html">Aviation</a>
+        <a href="themeparks.html">Theme Parks &amp; Entertainment</a>
+        <a href="ballistics.html">Ballistics &amp; Armour</a>
+        <a href="workwear.html">Workwear &amp; Industrial</a>
+        <h5 style="margin-top:1.5rem;">Retail</h5>
+        <a href="retail.html">Overview</a>
+        <a href="tailoring.html">Tailoring &amp; MTM</a>
+        <a href="sporting.html">High-Function &amp; Sporting</a>
+      </div>
+      <div class="footer-col">
+        <h5>Health &amp; Wellness</h5>
+        <a href="health.html">Overview</a>
+        <a href="pharmacy.html">Retail Pharmacy</a>
+        <a href="weightloss.html">Weight Management</a>
+        <a href="gyms.html">Gyms &amp; Fitness</a>
+        <a href="longevity.html">Longevity &amp; Wellness</a>
+        <a href="clinical.html">Allied Health &amp; GP</a>
+        <a href="defencehealth.html">Defence Health</a>
+        <a href="corporate.html">Corporate Wellness</a>
+        <h5 style="margin-top:1.5rem;">Consumer</h5>
+        <a href="mybodd.html">MyBodd</a>
+      </div>
+      <div class="footer-col">
+        <h5>How it works</h5>
+        <a href="howitworks.html">Overview</a>
+        <a href="platform.html">The Platform</a>
+        <a href="technology.html">Product &amp; Technology</a>
+        <a href="security.html">Data &amp; Security</a>
+        <h5 style="margin-top:1.5rem;">Company</h5>
+        <a href="about.html">About</a>
+        <a href="news.html">News</a>
+        <a href="press.html">Press &amp; Media</a>
+        <a href="contact.html">Contact</a>
+        <a href="careers.html">Work With Us</a>
+        <a href="investors.html">Investors</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Bodd Holdings Limited ABN 48 613 290 234. All rights reserved.</p>
+      <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+        <div onclick="showRegionModal()" style="display:flex;align-items:center;gap:0.5rem;font-size:12px;cursor:pointer;white-space:nowrap;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#555;flex-shrink:0;"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span id="footer-region-label" style="color:var(--white);font-weight:500;">AU / NZ</span>
+          <span style="color:#555;font-size:11px;">▾</span>
+        </div>
+        <p style="white-space:nowrap;"><a onclick="window.location.href='privacy.html'" style="color:var(--gray-400);cursor:pointer;">Privacy Policy</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bodd Prototype v11 — Site Map</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --accent: #c8f542;
+      --blue:   #5aaae8;
+      --purple: #c090f0;
+      --amber:  #f5b842;
+      --text: #ddd;
+      --dim: #555;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+      padding: 52px 44px 96px;
+    }
+
+    header {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      color: var(--dim);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    header .tag { font-family: 'Poppins', sans-serif; font-size: 11px; color: var(--accent); }
+    .subtitle {
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px;
+      color: #272727;
+      margin-bottom: 52px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── TREE ── */
+    .tree {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .root {
+      background: #ffffff;
+      color: #0a0a0a;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      padding: 11px 26px;
+      border-radius: 4px;
+    }
+
+    .stem { width: 2px; background: #1e1e1e; height: 28px; }
+
+    .h-bar {
+      width: 100%;
+      max-width: 980px;
+      height: 2px;
+      background: #1e1e1e;
+    }
+
+    .cols {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 980px;
+    }
+
+    .col-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 168px;
+    }
+
+    /* L1 header */
+    .l1-card {
+      width: 100%;
+      border-radius: 5px 5px 0 0;
+      padding: 9px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    /* L2 list */
+    .l2-box {
+      width: 100%;
+      border-radius: 0 0 5px 5px;
+      overflow: hidden;
+    }
+
+    .l2-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 12px;
+      font-size: 10.5px;
+      font-weight: 500;
+      border-top: 1px solid;
+    }
+
+    .l2-item .pid {
+      font-family: 'Poppins', sans-serif;
+      font-size: 8.5px;
+      font-weight: 400;
+      opacity: 0.3;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    .dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── COLOUR THEMES ── */
+
+    /* Uniforms — teal */
+    .l1-u { background: #0d1f16; border: 1.5px solid #1a4028; color: #4dcca0; border-bottom: none; }
+    .l2-u { background: #091510; border: 1.5px solid #1a4028; border-top: none; }
+    .l2-u .l2-item { border-top-color: #122a1c; color: #3aaa80; }
+    .l2-u .dot { background: #1D9E75; }
+
+    /* Retail — blue */
+    .l1-r { background: #0d1522; border: 1.5px solid #1a2f50; color: var(--blue); border-bottom: none; }
+    .l2-r { background: #090f18; border: 1.5px solid #1a2f50; border-top: none; }
+    .l2-r .l2-item { border-top-color: #111e30; color: #4a96d8; }
+    .l2-r .dot { background: var(--blue); }
+
+    /* Health — purple */
+    .l1-h { background: #16102a; border: 1.5px solid #3a1e5a; color: var(--purple); border-bottom: none; }
+    .l2-h { background: #0f0b1c; border: 1.5px solid #3a1e5a; border-top: none; }
+    .l2-h .l2-item { border-top-color: #22153a; color: #a878d8; }
+    .l2-h .dot { background: var(--purple); }
+
+    /* Platform — amber */
+    .l1-p { background: #1c1408; border: 1.5px solid #3e2a08; color: var(--amber); border-bottom: none; }
+    .l2-p { background: #120e05; border: 1.5px solid #3e2a08; border-top: none; }
+    .l2-p .l2-item { border-top-color: #281c06; color: #d09030; }
+    .l2-p .dot { background: var(--amber); }
+
+    /* Company — grey */
+    .l1-c { background: #141414; border: 1.5px solid #2e2e2e; color: #999; border-bottom: none; }
+    .l2-c { background: #0f0f0f; border: 1.5px solid #2e2e2e; border-top: none; }
+    .l2-c .l2-item { border-top-color: #1e1e1e; color: #777; }
+    .l2-c .dot { background: #555; }
+
+    /* Utility */
+    .l1-ut { background: #141414; border: 1.5px solid #2e2e2e; color: #999; border-bottom: none; }
+    .l2-ut { background: #0f0f0f; border: 1.5px solid #2e2e2e; border-top: none; }
+    .l2-ut .l2-item { border-top-color: #1e1e1e; color: #777; }
+    .l2-ut .dot { background: #555; }
+
+    /* Modals — dashed */
+    .l1-m { background: #141414; border: 1.5px dashed #2e2e2e; color: #999; border-bottom: none; }
+    .l2-m { background: #0f0f0f; border: 1.5px dashed #2e2e2e; border-top: none; }
+    .l2-m .l2-item { border-top-color: #1e1e1e; color: #777; font-style: italic; }
+    .l2-m .dot { background: #555; }
+
+    /* LEGEND */
+    .meta {
+      display: flex;
+      gap: 22px;
+      margin-top: 56px;
+      padding-top: 22px;
+      border-top: 1px solid #141414;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .li { display: flex; align-items: center; gap: 6px; font-size: 10px; font-family: 'Poppins', sans-serif; color: #333; }
+    .ld { width: 8px; height: 8px; border-radius: 2px; }
+    .ld-u  { background: #0d1f16; border: 1px solid #1a4028; }
+    .ld-r  { background: #0d1522; border: 1px solid #1a2f50; }
+    .ld-h  { background: #16102a; border: 1px solid #3a1e5a; }
+    .ld-p  { background: #1c1408; border: 1px solid #3e2a08; }
+    .ld-c  { background: #141414; border: 1px solid #2e2e2e; }
+    .ld-m  { background: #0f0f0f; border: 1px dashed #252525; }
+    .count { margin-left: auto; font-size: 10px; font-family: 'Poppins', sans-serif; color: #222; }
+  </style>
+</head>
+<body>
+
+<div class="tree">
+
+  <div class="root">Home</div>
+  <div class="stem"></div>
+  <div class="h-bar"></div>
+
+  <div class="cols">
+
+    <!-- UNIFORMS -->
+    <div class="col-wrap">
+      <div class="stem"></div>
+      <div class="l1-card l1-u">Uniforms</div>
+      <div class="l2-box l2-u">
+        <div class="l2-item"><span class="dot"></span>Defence &amp; Military</div>
+        <div class="l2-item"><span class="dot"></span>Police &amp; Law Enforcement</div>
+        <div class="l2-item"><span class="dot"></span>Fire &amp; Rescue</div>
+        <div class="l2-item"><span class="dot"></span>Ambulance &amp; Paramedics</div>
+        <div class="l2-item"><span class="dot"></span>Aviation</div>
+        <div class="l2-item"><span class="dot"></span>Theme Parks &amp; Entertainment</div>
+        <div class="l2-item"><span class="dot"></span>Ballistics &amp; Armour</div>
+        <div class="l2-item"><span class="dot"></span>Workwear &amp; Industrial</div>
+      </div>
+    </div>
+
+    <!-- RETAIL -->
+    <div class="col-wrap">
+      <div class="stem"></div>
+      <div class="l1-card l1-r">Retail</div>
+      <div class="l2-box l2-r">
+        <div class="l2-item"><span class="dot"></span>Tailoring &amp; MTM</div>
+        <div class="l2-item"><span class="dot"></span>High-Function &amp; Sporting</div>
+      </div>
+    </div>
+
+    <!-- HEALTH & WELLNESS -->
+    <div class="col-wrap">
+      <div class="stem"></div>
+      <div class="l1-card l1-h">Health &amp; Wellness</div>
+      <div class="l2-box l2-h">
+        <div class="l2-item"><span class="dot"></span>Retail Pharmacy</div>
+        <div class="l2-item"><span class="dot"></span>Weight Management</div>
+        <div class="l2-item"><span class="dot"></span>Gyms &amp; Fitness</div>
+        <div class="l2-item"><span class="dot"></span>Longevity &amp; Wellness</div>
+        <div class="l2-item"><span class="dot"></span>Allied Health &amp; GP</div>
+        <div class="l2-item"><span class="dot"></span>Defence Health</div>
+        <div class="l2-item"><span class="dot"></span>Corporate Wellness</div>
+      </div>
+    </div>
+
+    <!-- PLATFORM -->
+    <div class="col-wrap">
+      <div class="stem"></div>
+      <div class="l1-card l1-p">Platform</div>
+      <div class="l2-box l2-p">
+        <div class="l2-item"><span class="dot"></span>The Platform</div>
+        <div class="l2-item"><span class="dot"></span>Product &amp; Technology</div>
+        <div class="l2-item"><span class="dot"></span>MyBodd</div>
+        <div class="l2-item"><span class="dot"></span>Data &amp; Security</div>
+        <div class="l2-item"><span class="dot"></span>Build Your Platform</div>
+        <div class="l2-item"><span class="dot"></span>ROI Calculator</div>
+      </div>
+    </div>
+
+    <!-- COMPANY -->
+    <div class="col-wrap">
+      <div class="stem"></div>
+      <div class="l1-card l1-c">Company</div>
+      <div class="l2-box l2-c">
+        <div class="l2-item"><span class="dot"></span>About</div>
+        <div class="l2-item"><span class="dot"></span>News</div>
+        <div class="l2-item"><span class="dot"></span>Press &amp; Media</div>
+        <div class="l2-item"><span class="dot"></span>Careers</div>
+        <div class="l2-item"><span class="dot"></span>Investors</div>
+      </div>
+    </div>
+
+    <!-- UTILITY -->
+    <div class="col-wrap">
+      <div class="stem"></div>
+      <div class="l1-card l1-ut">Utility</div>
+      <div class="l2-box l2-ut">
+        <div class="l2-item"><span class="dot"></span>Contact</div>
+        <div class="l2-item"><span class="dot"></span>Book a Demo</div>
+        <div class="l2-item"><span class="dot"></span>Privacy Policy</div>
+      </div>
+    </div>
+
+    <!-- MODALS -->
+    <div class="col-wrap">
+      <div class="stem"></div>
+      <div class="l1-card l1-m">Modals</div>
+      <div class="l2-box l2-m">
+        <div class="l2-item"><span class="dot"></span>Region Selector</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Bodd</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- Region selector modal -->
+<div id="region-modal" style="position:fixed;inset:0;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);z-index:9999;display:none;align-items:center;justify-content:center;padding:1.5rem;-webkit-overflow-scrolling:touch;">
+  <div style="background:var(--bg-card);border-radius:16px;padding:2.5rem 2rem;max-width:380px;width:100%;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,0.2);">
+    <div style="width:44px;height:44px;background:var(--gray-50);border:0.5px solid var(--gray-200);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    </div>
+    <h3 style="font-size:20px;font-weight:500;letter-spacing:-0.02em;margin-bottom:0.5rem;">Select your region</h3>
+    <p style="font-size:13px;color:var(--gray-500);line-height:1.6;margin-bottom:1.75rem;">Regulatory information and product availability may vary by region.</p>
+    <div style="display:flex;flex-direction:column;gap:0.625rem;">
+      <button onclick="selectRegion('au')" style="width:100%;padding:0.875rem 1rem;background:var(--black);color:var(--white);border:none;border-radius:10px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:space-between;">
+        <span>Australia & New Zealand</span>
+        <span style="font-size:12px;opacity:0.5;">TGA registered</span>
+      </button>
+      <button onclick="selectRegion('us')" style="width:100%;padding:0.875rem 1rem;background:var(--gray-50);color:var(--white);border:0.5px solid var(--gray-200);border-radius:10px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:space-between;">
+        <span>United States</span>
+        <span style="font-size:12px;color:var(--gray-400);">FDA — in progress</span>
+      </button>
+      <button onclick="selectRegion('eu')" style="width:100%;padding:0.875rem 1rem;background:var(--gray-50);color:var(--white);border:0.5px solid var(--gray-200);border-radius:10px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:space-between;">
+        <span>Europe</span>
+        <span style="font-size:12px;color:var(--gray-400);">CE Mark — in progress</span>
+      </button>
+    </div>
+    <p style="font-size:11px;color:var(--gray-400);margin-top:1.25rem;">You can change your region at any time from the footer.</p>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-logo-wrap">
+    <div class="nav-logo" onclick="window.location.href='index.html'">Bodd</div>
+    <div class="dropdown" style="left:0;">
+      <div class="dropdown-inner" style="min-width:170px;">
+        <a href="index.html">Homepage — v1</a>
+        <a href="index_2.html">Homepage — v2</a>
+        <a href="index_3.html">Homepage — v3</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-inner">
+  <div class="nav-main">
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='uniforms.html'">Uniforms</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="defence.html">Defence &amp; Military</a>
+          <a href="police.html">Police &amp; Law Enforcement</a>
+          <a href="fire.html">Fire &amp; Rescue</a>
+          <a href="ambulance.html">Ambulance &amp; Paramedics</a>
+          <a href="aviation.html">Aviation</a>
+          <a href="themeparks.html">Theme Parks &amp; Entertainment</a>
+          <a href="ballistics.html">Ballistics &amp; Armour</a>
+          <a href="workwear.html">Workwear &amp; Industrial</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='retail.html'">Retail</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="tailoring.html">Tailoring & MTM</a>
+          <a href="sporting.html">High-Function & Sporting Apparel</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='health.html'">Health & Wellness</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="pharmacy.html">Retail Pharmacy</a>
+          <a href="weightloss.html">Weight Management</a>
+          <a href="gyms.html">Gyms & Fitness Centres</a>
+          <a href="longevity.html">Longevity & Wellness Centres</a>
+          <a href="clinical.html">Allied Health & GP Clinics</a>
+          <a href="defencehealth.html">Defence & Military Health</a>
+          <a href="corporate.html">Corporate Wellness</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='howitworks.html'">How it works</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="platform.html">The Platform</a>
+          <a href="technology.html">Product & Technology</a>
+          <a href="security.html">Data & Security</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='about.html'">About</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="about.html">About Bodd</a>
+          <a href="careers.html">Careers</a>
+          <a href="news.html">News</a>
+          <a href="press.html">Press &amp; Media</a>
+        </div>
+      </div>
+    </div>
+    <span class="nav-link" onclick="window.location.href='contact.html'">Contact</span>
+    <a class="nav-mybodd" href="mybodd.html"><svg width="12" height="20" viewBox="0 0 28 46" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="5" r="4.5"/><rect x="9" y="11" width="10" height="17" rx="3"/><rect class="bi-leg-l" x="8.5" y="26" width="4.5" height="19" rx="2.25"/><rect class="bi-leg-r" x="15" y="26" width="4.5" height="19" rx="2.25"/><rect class="bi-arm-l" x="-3" y="12" width="11" height="4" rx="2"/><rect class="bi-arm-r" x="20" y="12" width="11" height="4" rx="2"/></svg>MyBodd</a>
+  </div>
+  </div><!-- /nav-inner -->
+  <div class="nav-right">
+    <div class="nav-item">
+      <span class="nav-login">Log in</span>
+      <div class="dropdown" style="left:auto;right:0;">
+        <div class="dropdown-inner" style="min-width:150px;">
+          <a href="https://hub.bodd.com" target="_blank">BoddHub</a>
+          <a href="https://my.bodd.com" target="_blank">MyBodd</a>
+        </div>
+      </div>
+    </div>
+    <span class="nav-cta" onclick="window.location.href='demo.html'">Book a Demo</span>
+  </div>
+
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-inner">
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>Uniforms</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="uniforms.html">Overview</a>
+        <div class="sub-label">Sectors</div>
+        <a href="defence.html">Defence & Military</a>
+        <a href="police.html">Police & Law Enforcement</a>
+        <a href="fire.html">Fire & Rescue</a>
+        <a href="ambulance.html">Ambulance & Paramedics</a>
+        <a href="aviation.html">Aviation</a>
+        <a href="themeparks.html">Theme Parks & Entertainment</a>
+        <a href="ballistics.html">Ballistics & Armour</a>
+        <a href="workwear.html">Workwear & Industrial</a>
+      </div>
+    </div>
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>Retail</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="retail.html">Overview</a>
+        <div class="sub-label">Sectors</div>
+        <a href="tailoring.html">Tailoring & MTM</a>
+        <a href="sporting.html">High-Function & Sporting Apparel</a>
+      </div>
+    </div>
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>Health & Wellness</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="health.html">Overview</a>
+        <div class="sub-label">Sectors</div>
+        <a href="pharmacy.html">Retail Pharmacy</a>
+        <a href="weightloss.html">Weight Management</a>
+        <a href="gyms.html">Gyms & Fitness Centres</a>
+        <a href="longevity.html">Longevity & Wellness Centres</a>
+        <a href="clinical.html">Allied Health & GP Clinics</a>
+        <a href="defencehealth.html">Defence & Military Health</a>
+        <a href="corporate.html">Corporate Wellness</a>
+      </div>
+    </div>
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>How it works</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="howitworks.html">Overview</a>
+        <a href="platform.html">The Platform</a>
+        <a href="technology.html">Product & Technology</a>
+        <a href="security.html">Data & Security</a>
+      </div>
+    </div>
+
+    <a class="mobile-top-link" href="about.html">About</a>
+    <a class="mobile-top-link" href="contact.html">Contact</a>
+    <a class="mobile-top-link" href="mybodd.html">MyBodd</a>
+    <a class="mobile-cta" href="demo.html">Book a Demo</a>
+
+  </div>
+</div>
+
+<div class="hero">
+    <div class="breadcrumb"><span onclick="window.location.href='index.html'">Home</span> / Privacy Policy</div>
+    <h1>Privacy Policy</h1>
+    <p>Bodd Technologies Pty Limited ABN 61 609 421 301 · Last updated 12 April 2024</p>
+  </div>
+
+  <div class="section">
+    <div style="display:flex;flex-direction:column;gap:2rem;">
+
+      <div>
+        <h2>Introduction</h2>
+        <p class="body-text">We are Bodd Technologies Pty Limited ABN 61 609 421 301, an Australian corporation. The purpose of this Privacy Policy is to describe how we collect and use personal information, in the course of our business and through our website, and to show how we comply with applicable privacy laws. If you have any questions regarding the contents of this Policy or how we handle personal information, please contact our Privacy Office at <strong><a href="mailto:privacy@bodd.com">privacy@bodd.com</a></strong>.</p>
+        <p class="body-text" style="margin-top:0.75rem;">We may modify or amend this Privacy Policy from time to time. We will display a notice at bodd.com stating when any such revisions have been made.</p>
+        <p class="body-text" style="margin-top:0.75rem;">We are committed to protecting individuals' privacy — ensuring that all personal information we collect is collected by lawful and fair means, and handled in accordance with applicable privacy laws. We implement processes and technical, operational and legal safeguards that address privacy by design, privacy by default, information security, and minimisation of collection, handling and disclosure of personal information.</p>
+        <p class="body-text" style="margin-top:0.75rem;">Our business is providing a body scanning service to Bodd clients. This Privacy Policy does not address legal and regulatory requirements applying to a Bodd client. If you are a person to be scanned by a Bodd client, you may wish to also review the Privacy Policy of that Bodd client.</p>
+      </div>
+
+      <div>
+        <h2>What we do and how we do it</h2>
+        <p class="body-text">Bodd provides a body scanning service that enables Bodd clients to accurately measure physiological features and characteristics of individuals who elect to be scanned. Bodd provides full body scanners to Bodd clients who operate the scanners and arrange with individuals for the scanning to take place.</p>
+        <p class="body-text" style="margin-top:0.75rem;">Each Bodd client is responsible for arrangements between that Bodd client and individuals to be scanned — including agreement as to the purpose of the scan and permitted uses of scanned data. Each Bodd scanner captures raw scan data which is sent to Bodd. Bodd analyses that data and provides the relevant Bodd client with a scan summary report for each scanned person.</p>
+        <p class="body-text" style="margin-top:0.75rem;">Bodd seeks to minimise provision of information that might identify a scanned person. Bodd does not require a scanned person's name, address, phone number, email address or any other personal identifiers. A typical implementation is that a Bodd client allocates a unique transaction code (such as a QR code) to each person — this code is used in all data exchanges between the Bodd client and Bodd. The Bodd client holds the mapping between that code and the individual's identity. Raw scan data, scan summary reports, and all data handled by Bodd, are tracked using this unique code only.</p>
+        <p class="body-text" style="margin-top:0.75rem;">Bodd may further de-identify data by aggregating scan data across multiple persons, removing links to particular transaction codes, or removing links to particular Bodd clients or scanners. This effectively anonymised data may be used to improve Bodd's analytics services and for research, in accordance with guidance from the Office of the Australian Information Commissioner.</p>
+        <div class="card-gray" style="margin-top:1.25rem;padding:1.25rem;">
+          <p style="font-size:14px;font-weight:600;margin-bottom:0.5rem;">In summary:</p>
+          <ul class="bullet-list">
+            <li>Bodd will only collect direct identifiers relating to persons to be scanned with prior express consent of those persons.</li>
+            <li>Bodd will only use raw scanned data or scan summary reports in the way described above, or as Bodd, the Bodd client and the scanned person expressly agree.</li>
+            <li>Except where otherwise expressly agreed, Bodd will act as a data processor at the direction of the Bodd client as data controller.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <h2>Our privacy commitments</h2>
+        <p class="body-text">The Privacy Act 1988 (Commonwealth of Australia), including the Australian Privacy Principles (APPs), legally requires Bodd to comply with its requirements wherever Bodd does business around the globe. Most other jurisdictions also have their own data privacy laws which may also apply to Bodd. Bodd commits to comply with this Privacy Policy, the Privacy Act 1988, and all other applicable data protection and privacy laws.</p>
+        <p class="body-text" style="margin-top:0.75rem;">In this Privacy Policy: <em>Personal information</em> is information or an opinion about or relating to an individual who is identified or is reasonably identifiable. <em>Sensitive personal information</em> includes information about an individual's health, race or ethnicity, membership of a professional association, sexual orientation and certain biometric data.</p>
+      </div>
+
+      <div>
+        <h2>The purposes for which we collect personal information</h2>
+        <p class="body-text">Outside of providing scanning analytics services, Bodd may collect personal information in the following circumstances:</p>
+        <ul class="bullet-list" style="margin-top:0.75rem;">
+          <li><strong>Bodd clients and their staff</strong> — contact and related information to enable communication in relation to service provision.</li>
+          <li><strong>Suppliers and contractors</strong> — contact information and other relevant personal information to manage the provision of products and services.</li>
+          <li><strong>Job applicants</strong> — information relevant to assessing suitability for a position, as explained at the time of collection.</li>
+          <li><strong>Event attendees</strong> — contact and related information (including dietary or access requirements) necessary to facilitate attendance.</li>
+          <li><strong>Website visitors</strong> — server address, date and time of visit, pages accessed, duration of visit, and browser type for statistical and administrative purposes. Our website uses session cookies only — destroyed upon closing your browser with no personal information retained.</li>
+          <li><strong>Direct marketing</strong> — contact details to send marketing material, where consent has been obtained.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Where we handle and hold personal information</h2>
+        <p class="body-text">Where necessary to provide our services, we may share relevant personal information with service providers located outside Australia, but only to the extent necessary. Where personal information protected by data protection laws is transferred outside Australia, we will take reasonable steps to ensure the receiving entity complies with the Privacy Act 1988 and the Australian Privacy Principles.</p>
+      </div>
+
+      <div>
+        <h2>Security of personal information</h2>
+        <p class="body-text">We take appropriate industry-recognised steps to protect personal information from misuse, interference, loss, and unauthorised access, modification or disclosure — including access control procedures, network firewalls, encryption and physical security. Any payment transactions administered by us will be encrypted using appropriate technology.</p>
+        <p class="body-text" style="margin-top:0.75rem;">Unfortunately, the transmission of information via the internet is not completely secure. Although we will do our best to protect personal information, we cannot guarantee the security of data transmitted to our website, and any transmission is at your own risk. Once we have received your information, we will use appropriate procedures and security features to try to prevent unauthorised access.</p>
+      </div>
+
+      <div>
+        <h2>Sharing of personal information</h2>
+        <p class="body-text">We may, where reasonable and fair, share personal information with related corporations; business partners, customers, suppliers and sub-contractors for the performance of contracts; auditors, legal advisors and other professional advisors; and credit reference agencies where relevant. In relation to website data, we may share aggregate (non-identifiable) information with advertisers. We will never share identifiable individual information with advertisers without consent.</p>
+        <p class="body-text" style="margin-top:0.75rem;">Raw scanned data and scan summary reports will only be shared as described above under "What we do and how we do it."</p>
+      </div>
+
+      <div>
+        <h2>Direct marketing</h2>
+        <p class="body-text">You can stop receiving direct marketing communications from us at any time by clicking 'unsubscribe' in any email we send, or by contacting us directly. We will obtain your express opt-in consent before sharing your personal information with any third party for marketing purposes.</p>
+      </div>
+
+      <div>
+        <h2>Access to and correction of personal information</h2>
+        <p class="body-text">You may request access to personal information we hold about you. Subject to any permitted exception under applicable Privacy Laws, we will provide access to that information. If you believe information we hold about you is inaccurate, incomplete or out-of-date, please contact us and we will take reasonable steps to correct it.</p>
+        <p class="body-text" style="margin-top:0.75rem;">To request access, contact <strong><a href="mailto:privacy@bodd.com">privacy@bodd.com</a></strong>. We will require proof of identity before providing access. For most requests, information will be provided free of charge, though a reasonable fee may apply where a request requires substantial effort. If we refuse access, we will provide reasons and inform you of any exceptions relied upon.</p>
+      </div>
+
+      <div>
+        <h2>Retention of personal information</h2>
+        <p class="body-text">We retain personal information after the purposes for which it was collected have been fulfilled only where required by Australian law or a court/tribunal order, for professional indemnity insurance, or in accordance with our back-up archive policy. When no longer required, Bodd uses its best endeavours to ensure all such information is destroyed securely and within a reasonable timeframe.</p>
+      </div>
+
+      <div>
+        <h2>Other disclosures</h2>
+        <p class="body-text">We may disclose personal information in the event of a sale or purchase of a business or assets (subject to this policy), or where required to comply with legal obligations, enforce our terms of supply, or protect the rights, property or safety of our business, customers or others — including for the purposes of child protection, fraud protection or credit risk reduction.</p>
+      </div>
+
+      <div>
+        <h2>How to contact us</h2>
+        <p class="body-text">If you would like to access or enquire about personal information we hold about you, have a query about this Privacy Policy, or wish to make a complaint about our handling of personal information, please contact us:</p>
+        <div class="card-gray" style="margin-top:1rem;padding:1.5rem;">
+          <p style="margin:0;font-size:14px;line-height:2;"><strong>Bodd Technologies Pty Limited</strong><br>3-7 Walker Street, Prahran VIC 3181, Australia<br><strong><a href="mailto:hello@bodd.com">hello@bodd.com</a></strong></p>
+          <p style="margin-top:1rem;font-size:13px;color:var(--gray-600);line-height:1.7;">We endeavour to respond to complaints within 30 days. If you are not satisfied with our response, you may make a complaint to the Office of the Australian Information Commissioner by phoning <strong>1300 363 992</strong> or by email at <strong><a href="mailto:privacy@bodd.com">privacy@bodd.com</a></strong>.</p>
+        </div>
+        <p class="body-text" style="margin-top:1.5rem;font-size:12px;color:var(--gray-400);">This policy was last updated on 12 April 2024. We may modify this Privacy Policy from time to time and will display a notice at bodd.com when revisions are made.</p>
+      </div>
+
+    </div>
+  </div>
+
+<footer>
+  <div class="footer-inner">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:3rem;">
+      <div style="display:flex;flex-direction:column;">
+        <div class="footer-logo">Bodd</div>
+        <p class="footer-desc">The enterprise body intelligence platform. Built in Melbourne. Deployed globally.</p>
+        <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:5px;">
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;">PCIAW Technology Award 2025</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;">NAUMD Best Uniform Sizing Technology 2025</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;">Financial Review Most Innovative Company</div>
+        </div>
+        <div style="margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:5px;padding-top:2rem;">
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;justify-content:center;">Great Place<br>to Work®</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;justify-content:center;">MSIA<br>Member</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;justify-content:center;">Australian<br>Made</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Uniforms</h5>
+        <a href="uniforms.html">Overview</a>
+        <a href="defence.html">Defence & Military</a>
+        <a href="police.html">Police & Law Enforcement</a>
+        <a href="fire.html">Fire & Rescue</a>
+        <a href="ambulance.html">Ambulance & Paramedics</a>
+        <a href="aviation.html">Aviation</a>
+        <a href="themeparks.html">Theme Parks & Entertainment</a>
+        <a href="ballistics.html">Ballistics & Armour</a>
+        <a href="workwear.html">Workwear & Industrial</a>
+        <h5 style="margin-top:1.5rem;">Retail</h5>
+        <a href="retail.html">Overview</a>
+        <a href="tailoring.html">Tailoring & MTM</a>
+        <a href="sporting.html">High-Function & Sporting</a>
+      </div>
+      <div class="footer-col">
+        <h5>Health & Wellness</h5>
+        <a href="health.html">Overview</a>
+        <a href="pharmacy.html">Retail Pharmacy</a>
+        <a href="weightloss.html">Weight Management</a>
+        <a href="gyms.html">Gyms & Fitness</a>
+        <a href="longevity.html">Longevity & Wellness</a>
+        <a href="clinical.html">Allied Health & GP</a>
+        <a href="defencehealth.html">Defence Health</a>
+        <a href="corporate.html">Corporate Wellness</a>
+        <h5 style="margin-top:1.5rem;">Consumer</h5>
+        <a href="mybodd.html">MyBodd</a>
+      </div>
+      <div class="footer-col">
+        <h5>How it works</h5>
+        <a href="howitworks.html">Overview</a>
+        <a href="platform.html">The Platform</a>
+        <a href="technology.html">Product &amp; Technology</a>
+        <a href="security.html">Data &amp; Security</a>
+        <h5 style="margin-top:1.5rem;">Company</h5>
+        <a href="about.html">About</a>
+        <a href="news.html">News</a>
+        <a href="press.html">Press &amp; Media</a>
+        <a href="contact.html">Contact</a>
+        <a href="careers.html">Work With Us</a>
+        <a href="investors.html">Investors</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Bodd Holdings Limited ABN 48 613 290 234. All rights reserved.</p>
+      <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+        <div onclick="showRegionModal()" style="display:flex;align-items:center;gap:0.5rem;font-size:12px;cursor:pointer;white-space:nowrap;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#555;flex-shrink:0;"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span id="footer-region-label" style="color:var(--white);font-weight:500;">AU / NZ</span>
+          <span style="color:#555;font-size:11px;">▾</span>
+        </div>
+        <p style="white-space:nowrap;"><a onclick="window.location.href='privacy.html'" style="color:var(--gray-400);cursor:pointer;">Privacy Policy</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

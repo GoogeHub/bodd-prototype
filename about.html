@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Bodd</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- Region selector modal -->
+<div id="region-modal" style="position:fixed;inset:0;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);z-index:9999;display:none;align-items:center;justify-content:center;padding:1.5rem;-webkit-overflow-scrolling:touch;">
+  <div style="background:var(--bg-card);border-radius:16px;padding:2.5rem 2rem;max-width:380px;width:100%;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,0.2);">
+    <div style="width:44px;height:44px;background:var(--gray-50);border:0.5px solid var(--gray-200);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    </div>
+    <h3 style="font-size:20px;font-weight:500;letter-spacing:-0.02em;margin-bottom:0.5rem;">Select your region</h3>
+    <p style="font-size:13px;color:var(--gray-500);line-height:1.6;margin-bottom:1.75rem;">Regulatory information and product availability may vary by region.</p>
+    <div style="display:flex;flex-direction:column;gap:0.625rem;">
+      <button onclick="selectRegion('au')" style="width:100%;padding:0.875rem 1rem;background:var(--black);color:var(--white);border:none;border-radius:10px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:space-between;">
+        <span>Australia & New Zealand</span>
+        <span style="font-size:12px;opacity:0.5;">TGA registered</span>
+      </button>
+      <button onclick="selectRegion('us')" style="width:100%;padding:0.875rem 1rem;background:var(--gray-50);color:var(--white);border:0.5px solid var(--gray-200);border-radius:10px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:space-between;">
+        <span>United States</span>
+        <span style="font-size:12px;color:var(--gray-400);">FDA — in progress</span>
+      </button>
+      <button onclick="selectRegion('eu')" style="width:100%;padding:0.875rem 1rem;background:var(--gray-50);color:var(--white);border:0.5px solid var(--gray-200);border-radius:10px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:space-between;">
+        <span>Europe</span>
+        <span style="font-size:12px;color:var(--gray-400);">CE Mark — in progress</span>
+      </button>
+    </div>
+    <p style="font-size:11px;color:var(--gray-400);margin-top:1.25rem;">You can change your region at any time from the footer.</p>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-logo-wrap">
+    <div class="nav-logo" onclick="window.location.href='index.html'">Bodd</div>
+    <div class="dropdown" style="left:0;">
+      <div class="dropdown-inner" style="min-width:170px;">
+        <a href="index.html">Homepage — v1</a>
+        <a href="index_2.html">Homepage — v2</a>
+        <a href="index_3.html">Homepage — v3</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-inner">
+  <div class="nav-main">
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='uniforms.html'">Uniforms</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="defence.html">Defence &amp; Military</a>
+          <a href="police.html">Police &amp; Law Enforcement</a>
+          <a href="fire.html">Fire &amp; Rescue</a>
+          <a href="ambulance.html">Ambulance &amp; Paramedics</a>
+          <a href="aviation.html">Aviation</a>
+          <a href="themeparks.html">Theme Parks &amp; Entertainment</a>
+          <a href="ballistics.html">Ballistics &amp; Armour</a>
+          <a href="workwear.html">Workwear &amp; Industrial</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='retail.html'">Retail</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="tailoring.html">Tailoring & MTM</a>
+          <a href="sporting.html">High-Function & Sporting Apparel</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='health.html'">Health & Wellness</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="pharmacy.html">Retail Pharmacy</a>
+          <a href="weightloss.html">Weight Management</a>
+          <a href="gyms.html">Gyms & Fitness Centres</a>
+          <a href="longevity.html">Longevity & Wellness Centres</a>
+          <a href="clinical.html">Allied Health & GP Clinics</a>
+          <a href="defencehealth.html">Defence & Military Health</a>
+          <a href="corporate.html">Corporate Wellness</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='howitworks.html'">How it works</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="platform.html">The Platform</a>
+          <a href="technology.html">Product & Technology</a>
+          <a href="security.html">Data & Security</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='about.html'">About</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="about.html">About Bodd</a>
+          <a href="careers.html">Careers</a>
+          <a href="news.html">News</a>
+          <a href="press.html">Press &amp; Media</a>
+        </div>
+      </div>
+    </div>
+    <span class="nav-link" onclick="window.location.href='contact.html'">Contact</span>
+    <a class="nav-mybodd" href="mybodd.html"><svg width="12" height="20" viewBox="0 0 28 46" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="5" r="4.5"/><rect x="9" y="11" width="10" height="17" rx="3"/><rect class="bi-leg-l" x="8.5" y="26" width="4.5" height="19" rx="2.25"/><rect class="bi-leg-r" x="15" y="26" width="4.5" height="19" rx="2.25"/><rect class="bi-arm-l" x="-3" y="12" width="11" height="4" rx="2"/><rect class="bi-arm-r" x="20" y="12" width="11" height="4" rx="2"/></svg>MyBodd</a>
+  </div>
+  </div><!-- /nav-inner -->
+  <div class="nav-right">
+    <div class="nav-item">
+      <span class="nav-login">Log in</span>
+      <div class="dropdown" style="left:auto;right:0;">
+        <div class="dropdown-inner" style="min-width:150px;">
+          <a href="https://hub.bodd.com" target="_blank">BoddHub</a>
+          <a href="https://my.bodd.com" target="_blank">MyBodd</a>
+        </div>
+      </div>
+    </div>
+    <span class="nav-cta" onclick="window.location.href='demo.html'">Book a Demo</span>
+  </div>
+
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-inner">
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>Uniforms</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="uniforms.html">Overview</a>
+        <div class="sub-label">Sectors</div>
+        <a href="defence.html">Defence & Military</a>
+        <a href="police.html">Police & Law Enforcement</a>
+        <a href="fire.html">Fire & Rescue</a>
+        <a href="ambulance.html">Ambulance & Paramedics</a>
+        <a href="aviation.html">Aviation</a>
+        <a href="themeparks.html">Theme Parks & Entertainment</a>
+        <a href="ballistics.html">Ballistics & Armour</a>
+        <a href="workwear.html">Workwear & Industrial</a>
+      </div>
+    </div>
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>Retail</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="retail.html">Overview</a>
+        <div class="sub-label">Sectors</div>
+        <a href="tailoring.html">Tailoring & MTM</a>
+        <a href="sporting.html">High-Function & Sporting Apparel</a>
+      </div>
+    </div>
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>Health & Wellness</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="health.html">Overview</a>
+        <div class="sub-label">Sectors</div>
+        <a href="pharmacy.html">Retail Pharmacy</a>
+        <a href="weightloss.html">Weight Management</a>
+        <a href="gyms.html">Gyms & Fitness Centres</a>
+        <a href="longevity.html">Longevity & Wellness Centres</a>
+        <a href="clinical.html">Allied Health & GP Clinics</a>
+        <a href="defencehealth.html">Defence & Military Health</a>
+        <a href="corporate.html">Corporate Wellness</a>
+      </div>
+    </div>
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>How it works</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="howitworks.html">Overview</a>
+        <a href="platform.html">The Platform</a>
+        <a href="technology.html">Product & Technology</a>
+        <a href="security.html">Data & Security</a>
+      </div>
+    </div>
+
+    <a class="mobile-top-link" href="about.html">About</a>
+    <a class="mobile-top-link" href="contact.html">Contact</a>
+    <a class="mobile-top-link" href="mybodd.html">MyBodd</a>
+    <a class="mobile-cta" href="demo.html">Book a Demo</a>
+
+  </div>
+</div>
+
+<div class="hero">
+    <div class="breadcrumb"><span onclick="window.location.href='index.html'">Home</span> / About</div>
+    <h1>We believe human body data can change the world for good.</h1>
+  </div>
+
+  <div class="section">
+    <div class="quote-block">
+      <p>"To harness the power of human body data as a force for good in the world."</p>
+    </div>
+
+    <hr class="div">
+    <h2>Our values</h2>
+    <div class="grid-3" style="margin-top:1.5rem;">
+      <div class="card-gray" style="padding-top:1.25rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal);"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h4>Do what you say</h4>
+        <p>We all have a role to play in nurturing this business — it's collectively ours. If you say it, do it. No exceptions.</p>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal);"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div>
+        <h4>Creative problem solvers</h4>
+        <p>We think fast, move fast, and stay curious — innovation is how we operate. We work in regulated industries where the stakes are high and stay agile within it.</p>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal);"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h4>Good human beings</h4>
+        <p>We genuinely care about the people around us. That means being straight talkers — clear, honest, and respectful. No dickheads, even brilliant ones.</p>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal);"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+        <h4>Courageous &amp; humble</h4>
+        <p>We're laying the track as we race over it. Curious, comfortable, and excited by the unknown. Optimism is essential. False bravado is not tolerated.</p>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal);"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+        <h4>High performing &amp; trusted</h4>
+        <p>We hire A-grade people and trust them to deliver. Energy is contagious — bring calm to the pace.</p>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal);"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+        <h4>Love work, love life</h4>
+        <p>We're proud of the work we do. We know when to push and when to step back. Burning out doesn't serve ourselves, our mission, or each other.</p>
+      </div>
+    </div>
+
+    <hr class="div">
+    <h2>Co-founders</h2>
+    <div class="grid-2" style="margin-top:1.5rem;">
+      <div class="team-card">
+        <div class="team-img"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="team-name">Rob Fisher</div>
+        <div class="team-role">Co-founder & CEO</div>
+        <div class="team-quote">"Body data is incredibly powerful, but it's also incredibly sensitive. Getting the balance right between innovation, regulation, and trust is critical."</div>
+        <div style="margin-top:1rem;"><a href="https://www.linkedin.com/in/robfisher" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
+      </div>
+      <div class="team-card">
+        <div class="team-img"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="team-name">David McLaughlin</div>
+        <div class="team-role">Co-founder & CTO</div>
+        <div class="team-quote">"If you look three to five years ahead, we'll probably be seen as a health and wellness data business that just happened to masquerade as an apparel sizing business."</div>
+        <div style="margin-top:1rem;"><a href="https://www.linkedin.com/in/davidmclaughlin" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
+      </div>
+    </div>
+
+    <div class="video-wrap">
+      <div class="video-placeholder">
+        <div class="video-play"></div>
+        <div class="video-label">[ The Bodd story — founders video ]</div>
+      </div>
+    </div>
+
+    <hr class="div">
+    <h2>Board & Advisers</h2>
+    <div class="grid-3" style="margin-top:1.5rem;">
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Tim Allison</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Executive Chairman</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Tim+Allison" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Ben Reichel</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Legal Counsel</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Ben+Reichel" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Peter Leonard</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Non-Executive Director</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Peter+Leonard" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Alice Sidhu</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Non-Executive Director</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Alice+Sidhu" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Nick Hirons</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Non-Executive Director</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Nick+Hirons" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+    </div>
+
+    <hr class="div">
+    <h2>Finance &amp; Operations</h2>
+    <div class="grid-3" style="margin-top:1.5rem;">
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Rointon Nugara</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">CFO</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Rointon+Nugara" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>John Lake</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">COO</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=John+Lake" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-400);font-size:18px;font-weight:600;">BB</div>
+        <h4>Brad Blackbeard</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Senior Program Manager — Apparel</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Brad+Blackbeard" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+    </div>
+
+    <hr class="div">
+    <h2>Sales & Commercial</h2>
+    <div class="grid-3" style="margin-top:1.5rem;">
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Peter O'Neill</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Chief Commercial Officer</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Peter+O'Neill" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Ryan Harpur</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Business Development Lead</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Ryan+Harpur" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-400);font-size:18px;font-weight:600;">KK</div>
+        <h4>Keith Klein</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Business Development Lead</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Keith+Klein" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+    </div>
+
+    <hr class="div">
+    <h2>Technology & Engineering</h2>
+    <div class="grid-3" style="margin-top:1.5rem;">
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Muhammad Umer</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Chief Product Officer</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Muhammad+Umer" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Nicholas Mulder</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Head of Software</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Nicholas+Mulder" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Dr. Mark Smith</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Head of Hardware</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Dr.+Mark+Smith" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Dr. Matthew Goldsmith</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Lead Researcher</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Dr.+Matthew+Goldsmith" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Tony Kirk</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Research Scientist, Computer Vision</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Tony+Kirk" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Brandon Hearne</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Lead Platform Developer</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Brandon+Hearne" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Duncan Camilleri</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Senior IoT Design Engineer</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Duncan+Camilleri" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Kin Wong</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Senior Software Engineer</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Kin+Wong" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Warren Bloomer</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Senior Embedded Systems Engineer</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Warren+Bloomer" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Raphael Mayer</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Head of Product Operations &amp; Quality</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Raphael+Mayer" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Xin Li</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Senior Hardware and Software Integration Engineer</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Xin+Li" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Kesav Rengarajan</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Senior Design Engineer</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Kesav+Rengarajan" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-400);font-size:18px;font-weight:600;">BW</div>
+        <h4>Brandon Wong</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Product QA Engineer</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Brandon+Wong" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+    
+      
+    
+      
+    
+      
+    </div>
+      
+
+    <hr class="div">
+    <h2>Product & Design</h2>
+    <div class="grid-3" style="margin-top:1.5rem;">
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Camille Zapata</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Head of Product</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Camille+Zapata" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Paul McCuaig</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Senior Product Technician</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Paul+McCuaig" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Nathan Vincent</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Senior Product Designer</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Nathan+Vincent" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+    
+      
+    
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-400);font-size:18px;font-weight:600;">JN</div>
+        <h4>James Noble</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Chief Experience Officer</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=James+Noble" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+    </div>
+
+    <hr class="div">
+    <h2>Marketing</h2>
+    <div class="grid-3" style="margin-top:1.5rem;">
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Emma Stuart</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Marketing Manager</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Emma+Stuart" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Oliver Makinson</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Senior Marketing Specialist</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Oliver+Makinson" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Celine Lie</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Senior Graphic Designer</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Celine+Lie" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      
+      
+    </div>
+    </div>
+
+    <hr class="div">
+    <h2>Admin &amp; Compliance</h2>
+    <div class="grid-3" style="margin-top:1.5rem;">
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Alejandro Caro</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Compliance & Risk Manager</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Alejandro+Caro" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      <div class="card" style="padding-top:1.25rem;">
+        <div style="width:56px;height:56px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:0.875rem;color:var(--gray-300);"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Yvonne Finegan</h4>
+        <p style="color:var(--gray-400);font-size:13px;margin-bottom:0.625rem;">Office Manager</p>
+        <a href="https://www.linkedin.com/search/results/all/?keywords=Yvonne+Finegan" target="_blank" style="display:inline-flex;align-items:center;gap:0.375rem;font-size:12px;color:var(--gray-400);text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+      </div>
+      
+    
+      
+    
+      
+    </div>
+      
+
+    <hr class="div">
+    <h2>It takes a village.</h2>
+    <p class="body-text">Bodd wouldn't be where it is without the partners, programmes, and organisations that have backed us along the way. We're grateful to each of them.</p>
+    <div class="grid-3" style="margin-top:1.5rem;">
+      <div class="card-gray" style="padding-top:1.25rem;display:flex;align-items:flex-start;gap:0.75rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal-dark);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <div><h4 style="margin-bottom:0.25rem;">Bosch</h4><p style="font-size:13px;color:var(--gray-600);margin:0;">Precision hardware manufacturing partner — Bodd scanners are proudly manufactured by Bosch.</p></div>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;display:flex;align-items:flex-start;gap:0.75rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal-dark);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg></div>
+        <div><h4 style="margin-bottom:0.25rem;">AWS</h4><p style="font-size:13px;color:var(--gray-600);margin:0;">Cloud infrastructure partner — Bodd is an AWS Select Technology Partner, providing the foundation for our global data sovereignty commitments.</p></div>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;display:flex;align-items:flex-start;gap:0.75rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal-dark);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg></div>
+        <div><h4 style="margin-bottom:0.25rem;">AMTIL</h4><p style="font-size:13px;color:var(--gray-600);margin:0;">Australian Manufacturing Technology Institute Limited — supporting Bodd's advanced manufacturing capability.</p></div>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;display:flex;align-items:flex-start;gap:0.75rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal-dark);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div><h4 style="margin-bottom:0.25rem;">APR Intern</h4><p style="font-size:13px;color:var(--gray-600);margin:0;">Connecting Bodd with exceptional university talent to accelerate research and development.</p></div>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;display:flex;align-items:flex-start;gap:0.75rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal-dark);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><h4 style="margin-bottom:0.25rem;">Team Defence Australia</h4><p style="font-size:13px;color:var(--gray-600);margin:0;">Supporting Bodd's engagement with Australian defence industry and capability development programmes.</p></div>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;display:flex;align-items:flex-start;gap:0.75rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal-dark);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <div><h4 style="margin-bottom:0.25rem;">Global Victoria</h4><p style="font-size:13px;color:var(--gray-600);margin:0;">Supporting Bodd's international expansion and global market development from our Melbourne home base.</p></div>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;display:flex;align-items:flex-start;gap:0.75rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal-dark);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div><h4 style="margin-bottom:0.25rem;">Austrade</h4><p style="font-size:13px;color:var(--gray-600);margin:0;">Australian Trade and Investment Commission — backing Bodd's export journey and international trade development.</p></div>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;display:flex;align-items:flex-start;gap:0.75rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal-dark);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div><h4 style="margin-bottom:0.25rem;">AMGC</h4><p style="font-size:13px;color:var(--gray-600);margin:0;">Advanced Manufacturing Growth Centre — supporting Bodd's growth as an Australian advanced manufacturing success story.</p></div>
+      </div>
+    </div>
+
+    <hr class="div">
+    <div class="cert-row">
+      <span class="cert active">Great Place to Work®</span>
+      <span class="cert">Built in Australia</span>
+      <span class="cert">Deployed globally</span>
+    </div>
+    <div class="cta-row" style="margin-top:1.5rem;">
+      <span class="btn btn-primary" onclick="window.location.href='demo.html'" style="text-align:center;">Book a Demo</span>
+      <span class="btn btn-secondary" onclick="window.location.href='contact.html'">Contact Us</span>
+      <span class="btn btn-secondary" onclick="window.location.href='news.html'">News & Press</span>
+      <span class="btn btn-secondary" onclick="window.location.href='investors.html'">Investors</span>
+      <span class="btn btn-secondary" onclick="window.location.href='careers.html'">Work With Us</span>
+    </div>
+  </div>
+  <div style="background:var(--black);color:var(--white);padding:3rem 2rem;">
+    <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+      <div style="flex:1;min-width:280px;">
+        <h2 style="font-size:28px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;color:var(--white);margin-bottom:0.75rem;">We're building something genuinely new. Come see it.</h2>
+        <p style="font-size:15px;color:#999;line-height:1.65;margin:0;">Book a demo, reach out with questions, or explore open roles on our team.</p>
+      </div>
+      <div style="flex-shrink:0;">
+        <span class="btn" onclick="window.location.href='contact.html'" style="background:var(--bg-card);color:var(--white);font-size:14px;padding:14px 28px;border-radius:24px;cursor:pointer;">Book a Demo</span>
+      </div>
+    </div>
+  </div>
+
+<footer>
+  <div class="footer-inner">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:3rem;">
+      <div style="display:flex;flex-direction:column;">
+        <div class="footer-logo">Bodd</div>
+        <p class="footer-desc">The enterprise body intelligence platform. Built in Melbourne. Deployed globally.</p>
+        <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:5px;">
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;">PCIAW Technology Award 2025</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;">NAUMD Best Uniform Sizing Technology 2025</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;">Financial Review Most Innovative Company</div>
+        </div>
+        <div style="margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:5px;padding-top:2rem;">
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;justify-content:center;">Great Place<br>to Work®</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;justify-content:center;">MSIA<br>Member</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;justify-content:center;">Australian<br>Made</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Uniforms</h5>
+        <a href="uniforms.html">Overview</a>
+        <a href="defence.html">Defence & Military</a>
+        <a href="police.html">Police & Law Enforcement</a>
+        <a href="fire.html">Fire & Rescue</a>
+        <a href="ambulance.html">Ambulance & Paramedics</a>
+        <a href="aviation.html">Aviation</a>
+        <a href="themeparks.html">Theme Parks & Entertainment</a>
+        <a href="ballistics.html">Ballistics & Armour</a>
+        <a href="workwear.html">Workwear & Industrial</a>
+        <h5 style="margin-top:1.5rem;">Retail</h5>
+        <a href="retail.html">Overview</a>
+        <a href="tailoring.html">Tailoring & MTM</a>
+        <a href="sporting.html">High-Function & Sporting</a>
+      </div>
+      <div class="footer-col">
+        <h5>Health & Wellness</h5>
+        <a href="health.html">Overview</a>
+        <a href="pharmacy.html">Retail Pharmacy</a>
+        <a href="weightloss.html">Weight Management</a>
+        <a href="gyms.html">Gyms & Fitness</a>
+        <a href="longevity.html">Longevity & Wellness</a>
+        <a href="clinical.html">Allied Health & GP</a>
+        <a href="defencehealth.html">Defence Health</a>
+        <a href="corporate.html">Corporate Wellness</a>
+        <h5 style="margin-top:1.5rem;">Consumer</h5>
+        <a href="mybodd.html">MyBodd</a>
+      </div>
+      <div class="footer-col">
+        <h5>How it works</h5>
+        <a href="howitworks.html">Overview</a>
+        <a href="platform.html">The Platform</a>
+        <a href="technology.html">Product &amp; Technology</a>
+        <a href="security.html">Data &amp; Security</a>
+        <h5 style="margin-top:1.5rem;">Company</h5>
+        <a href="about.html">About</a>
+        <a href="news.html">News</a>
+        <a href="press.html">Press &amp; Media</a>
+        <a href="contact.html">Contact</a>
+        <a href="careers.html">Work With Us</a>
+        <a href="investors.html">Investors</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Bodd Holdings Limited ABN 48 613 290 234. All rights reserved.</p>
+      <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+        <div onclick="showRegionModal()" style="display:flex;align-items:center;gap:0.5rem;font-size:12px;cursor:pointer;white-space:nowrap;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#555;flex-shrink:0;"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span id="footer-region-label" style="color:var(--white);font-weight:500;">AU / NZ</span>
+          <span style="color:#555;font-size:11px;">▾</span>
+        </div>
+        <p style="white-space:nowrap;"><a onclick="window.location.href='privacy.html'" style="color:var(--gray-400);cursor:pointer;">Privacy Policy</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

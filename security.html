@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data & Security — Bodd</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- Region selector modal -->
+<div id="region-modal" style="position:fixed;inset:0;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);z-index:9999;display:none;align-items:center;justify-content:center;padding:1.5rem;-webkit-overflow-scrolling:touch;">
+  <div style="background:var(--bg-card);border-radius:16px;padding:2.5rem 2rem;max-width:380px;width:100%;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,0.2);">
+    <div style="width:44px;height:44px;background:var(--gray-50);border:0.5px solid var(--gray-200);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    </div>
+    <h3 style="font-size:20px;font-weight:500;letter-spacing:-0.02em;margin-bottom:0.5rem;">Select your region</h3>
+    <p style="font-size:13px;color:var(--gray-500);line-height:1.6;margin-bottom:1.75rem;">Regulatory information and product availability may vary by region.</p>
+    <div style="display:flex;flex-direction:column;gap:0.625rem;">
+      <button onclick="selectRegion('au')" style="width:100%;padding:0.875rem 1rem;background:var(--black);color:var(--white);border:none;border-radius:10px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:space-between;">
+        <span>Australia & New Zealand</span>
+        <span style="font-size:12px;opacity:0.5;">TGA registered</span>
+      </button>
+      <button onclick="selectRegion('us')" style="width:100%;padding:0.875rem 1rem;background:var(--gray-50);color:var(--white);border:0.5px solid var(--gray-200);border-radius:10px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:space-between;">
+        <span>United States</span>
+        <span style="font-size:12px;color:var(--gray-400);">FDA — in progress</span>
+      </button>
+      <button onclick="selectRegion('eu')" style="width:100%;padding:0.875rem 1rem;background:var(--gray-50);color:var(--white);border:0.5px solid var(--gray-200);border-radius:10px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:space-between;">
+        <span>Europe</span>
+        <span style="font-size:12px;color:var(--gray-400);">CE Mark — in progress</span>
+      </button>
+    </div>
+    <p style="font-size:11px;color:var(--gray-400);margin-top:1.25rem;">You can change your region at any time from the footer.</p>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-logo-wrap">
+    <div class="nav-logo" onclick="window.location.href='index.html'">Bodd</div>
+    <div class="dropdown" style="left:0;">
+      <div class="dropdown-inner" style="min-width:170px;">
+        <a href="index.html">Homepage — v1</a>
+        <a href="index_2.html">Homepage — v2</a>
+        <a href="index_3.html">Homepage — v3</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-inner">
+  <div class="nav-main">
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='uniforms.html'">Uniforms</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="defence.html">Defence &amp; Military</a>
+          <a href="police.html">Police &amp; Law Enforcement</a>
+          <a href="fire.html">Fire &amp; Rescue</a>
+          <a href="ambulance.html">Ambulance &amp; Paramedics</a>
+          <a href="aviation.html">Aviation</a>
+          <a href="themeparks.html">Theme Parks &amp; Entertainment</a>
+          <a href="ballistics.html">Ballistics &amp; Armour</a>
+          <a href="workwear.html">Workwear &amp; Industrial</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='retail.html'">Retail</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="tailoring.html">Tailoring & MTM</a>
+          <a href="sporting.html">High-Function & Sporting Apparel</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='health.html'">Health & Wellness</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="pharmacy.html">Retail Pharmacy</a>
+          <a href="weightloss.html">Weight Management</a>
+          <a href="gyms.html">Gyms & Fitness Centres</a>
+          <a href="longevity.html">Longevity & Wellness Centres</a>
+          <a href="clinical.html">Allied Health & GP Clinics</a>
+          <a href="defencehealth.html">Defence & Military Health</a>
+          <a href="corporate.html">Corporate Wellness</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='howitworks.html'">How it works</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="platform.html">The Platform</a>
+          <a href="technology.html">Product & Technology</a>
+          <a href="security.html">Data & Security</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='about.html'">About</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="about.html">About Bodd</a>
+          <a href="careers.html">Careers</a>
+          <a href="news.html">News</a>
+          <a href="press.html">Press &amp; Media</a>
+        </div>
+      </div>
+    </div>
+    <span class="nav-link" onclick="window.location.href='contact.html'">Contact</span>
+    <a class="nav-mybodd" href="mybodd.html"><svg width="12" height="20" viewBox="0 0 28 46" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="5" r="4.5"/><rect x="9" y="11" width="10" height="17" rx="3"/><rect class="bi-leg-l" x="8.5" y="26" width="4.5" height="19" rx="2.25"/><rect class="bi-leg-r" x="15" y="26" width="4.5" height="19" rx="2.25"/><rect class="bi-arm-l" x="-3" y="12" width="11" height="4" rx="2"/><rect class="bi-arm-r" x="20" y="12" width="11" height="4" rx="2"/></svg>MyBodd</a>
+  </div>
+  </div><!-- /nav-inner -->
+  <div class="nav-right">
+    <div class="nav-item">
+      <span class="nav-login">Log in</span>
+      <div class="dropdown" style="left:auto;right:0;">
+        <div class="dropdown-inner" style="min-width:150px;">
+          <a href="https://hub.bodd.com" target="_blank">BoddHub</a>
+          <a href="https://my.bodd.com" target="_blank">MyBodd</a>
+        </div>
+      </div>
+    </div>
+    <span class="nav-cta" onclick="window.location.href='demo.html'">Book a Demo</span>
+  </div>
+
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-inner">
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>Uniforms</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="uniforms.html">Overview</a>
+        <div class="sub-label">Sectors</div>
+        <a href="defence.html">Defence & Military</a>
+        <a href="police.html">Police & Law Enforcement</a>
+        <a href="fire.html">Fire & Rescue</a>
+        <a href="ambulance.html">Ambulance & Paramedics</a>
+        <a href="aviation.html">Aviation</a>
+        <a href="themeparks.html">Theme Parks & Entertainment</a>
+        <a href="ballistics.html">Ballistics & Armour</a>
+        <a href="workwear.html">Workwear & Industrial</a>
+      </div>
+    </div>
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>Retail</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="retail.html">Overview</a>
+        <div class="sub-label">Sectors</div>
+        <a href="tailoring.html">Tailoring & MTM</a>
+        <a href="sporting.html">High-Function & Sporting Apparel</a>
+      </div>
+    </div>
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>Health & Wellness</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="health.html">Overview</a>
+        <div class="sub-label">Sectors</div>
+        <a href="pharmacy.html">Retail Pharmacy</a>
+        <a href="weightloss.html">Weight Management</a>
+        <a href="gyms.html">Gyms & Fitness Centres</a>
+        <a href="longevity.html">Longevity & Wellness Centres</a>
+        <a href="clinical.html">Allied Health & GP Clinics</a>
+        <a href="defencehealth.html">Defence & Military Health</a>
+        <a href="corporate.html">Corporate Wellness</a>
+      </div>
+    </div>
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>How it works</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="howitworks.html">Overview</a>
+        <a href="platform.html">The Platform</a>
+        <a href="technology.html">Product & Technology</a>
+        <a href="security.html">Data & Security</a>
+      </div>
+    </div>
+
+    <a class="mobile-top-link" href="about.html">About</a>
+    <a class="mobile-top-link" href="contact.html">Contact</a>
+    <a class="mobile-top-link" href="mybodd.html">MyBodd</a>
+    <a class="mobile-cta" href="demo.html">Book a Demo</a>
+
+  </div>
+</div>
+
+<div class="hero">
+    <div class="breadcrumb"><span onclick="window.location.href='index.html'">Home</span> / Data & Security</div>
+    <h1>Body data is among the most sensitive data an organisation can hold. We built Bodd accordingly.</h1>
+    <p>From the architecture of the scanner to the infrastructure that stores your data — privacy and security aren't features we added. They're properties of how Bodd was built.</p>
+    <div style="display:flex;gap:0.625rem;flex-wrap:wrap;margin-top:1.5rem;">
+      <div style="flex:1;min-width:80px;background:var(--gray-50);border:0.5px solid var(--gray-200);border-radius:10px;padding:0.875rem 0.75rem;text-align:center;">
+        <div style="display:flex;justify-content:center;margin-bottom:0.35rem;color:var(--gray-400);"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div style="font-size:12px;font-weight:600;color:var(--white);margin-bottom:0.2rem;">ISO 27001</div>
+        <div style="font-size:11px;color:var(--gray-500);">Certified</div>
+      </div>
+      <div style="flex:1;min-width:80px;background:var(--gray-50);border:0.5px solid var(--gray-200);border-radius:10px;padding:0.875rem 0.75rem;text-align:center;">
+        <div style="display:flex;justify-content:center;margin-bottom:0.35rem;color:var(--gray-400);"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <div style="font-size:12px;font-weight:600;color:var(--white);margin-bottom:0.2rem;">DISP</div>
+        <div style="font-size:11px;color:var(--gray-500);">Accredited</div>
+      </div>
+      <div style="flex:1;min-width:80px;background:var(--gray-50);border:0.5px solid var(--gray-200);border-radius:10px;padding:0.875rem 0.75rem;text-align:center;">
+        <div style="display:flex;justify-content:center;margin-bottom:0.35rem;color:var(--gray-400);"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div style="font-size:12px;font-weight:600;color:var(--white);margin-bottom:0.2rem;">Essential 8</div>
+        <div style="font-size:11px;color:var(--gray-500);">Aligned</div>
+      </div>
+      <div style="flex:1;min-width:80px;background:var(--gray-50);border:0.5px solid var(--gray-200);border-radius:10px;padding:0.875rem 0.75rem;text-align:center;">
+        <div style="display:flex;justify-content:center;margin-bottom:0.35rem;color:var(--gray-400);"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div style="font-size:12px;font-weight:600;color:var(--white);margin-bottom:0.2rem;">TGA</div>
+        <div style="font-size:11px;color:var(--gray-500);">In progress</div>
+      </div>
+      <div style="flex:1;min-width:80px;background:var(--gray-50);border:0.5px solid var(--gray-200);border-radius:10px;padding:0.875rem 0.75rem;text-align:center;">
+        <div style="display:flex;justify-content:center;margin-bottom:0.35rem;color:var(--gray-400);"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div style="font-size:12px;font-weight:600;color:var(--white);margin-bottom:0.2rem;">MSIA</div>
+        <div style="font-size:11px;color:var(--gray-500);">Member</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Privacy architecture — built in from day one.</h2>
+    <p class="body-text">Most platforms are built first, then secured. Bodd was designed with privacy as a structural property — not a layer applied afterwards.</p>
+
+    <div class="grid-3" style="margin-top:2rem;">
+      <div class="card-gray" style="padding-top:1.25rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h4>No PII captured during scanning</h4>
+        <p>The scanner never captures personally identifiable information. Every individual scans against a unique transaction code — a reference number that holds no identity data of its own.</p>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0 3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg></div>
+        <h4>The organisation holds the key</h4>
+        <p>The organisation deploying Bodd holds the mapping between transaction codes and individual identities. Bodd holds the scan data. The two exist in separate systems — never combined within Bodd's infrastructure.</p>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h4>Individual access is optional by design</h4>
+        <p>Individuals can choose to create a MyBodd account to access their own data directly — but this is their choice, not a default. Organisations in sensitive environments can disable individual portal access entirely.</p>
+      </div>
+    </div>
+
+    <hr class="div">
+    <h2>Data sovereignty as standard.</h2>
+    <p class="body-text">Your data stays in your region. Bodd operates dedicated regional infrastructure — not a shared global environment — so your organisation's data is always stored in accordance with local data sovereignty requirements.</p>
+    <div class="grid-2" style="margin-top:1.5rem;">
+      <div class="card-gray" style="padding-top:1.25rem;"><div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg></div><h4>Regional AWS instances</h4><p>Dedicated cloud infrastructure per region. Your data never moves outside your designated geography without your explicit authorisation.</p></div>
+      <div class="card-gray" style="padding-top:1.25rem;"><div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><h4>Secure data separation</h4><p>Bodd operates regional cloud instances, with every organisation's data stored in a dedicated, isolated environment within that infrastructure. Your data remains entirely separate from any other organisation's.</p></div>
+    </div>
+
+    <hr class="div">
+    <h2>Four principles. Every deployment. Every market.</h2>
+    <div class="grid-4" style="margin-top:1.5rem;">
+      <div class="card" style="padding-top:1.25rem;"><div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg></div><h4>Transparency</h4><p>Individuals are always informed when a scan is taking place and what data is being captured.</p></div>
+      <div class="card" style="padding-top:1.25rem;"><div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg></div><h4>Consent</h4><p>Scanning is always opt-in. No individual is scanned without their knowledge and agreement.</p></div>
+      <div class="card" style="padding-top:1.25rem;"><div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><h4>Security</h4><p>Enterprise-grade infrastructure, encryption, and access controls — applied consistently across every deployment.</p></div>
+      <div class="card" style="padding-top:1.25rem;"><div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h4>Compliance</h4><p>Bodd meets the regulatory requirements of every market it operates in — and is actively pursuing additional certifications.</p></div>
+    </div>
+
+    <hr class="div">
+    <h2>Certifications & accreditations.</h2>
+    <p class="body-text">Current certifications:</p>
+    <div style="display:flex;flex-direction:column;gap:0.75rem;margin-top:0.875rem;">
+        <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+          <div style="width:30px;height:30px;background:var(--gray-100);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gray-600);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.15rem;">ISO 27001</div><div style="font-size:12px;color:var(--gray-600);line-height:1.5;">The international gold standard for information security management systems. Independently audited and certified.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+          <div style="width:30px;height:30px;background:var(--gray-100);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gray-600);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.15rem;">DISP</div><div style="font-size:12px;color:var(--gray-600);line-height:1.5;">Defence Industry Security Program (Australia) — required for organisations working with Australian Government defence information.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+          <div style="width:30px;height:30px;background:var(--gray-100);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gray-600);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.15rem;">Essential 8</div><div style="font-size:12px;color:var(--gray-600);line-height:1.5;">Alignment with the Australian Cyber Security Centre's Essential Eight mitigation strategies.</div></div>
+        </div>
+      </div>
+    <p class="body-text" style="margin-top:1.5rem;">In progress:</p>
+    <div style="display:flex;flex-direction:column;gap:0.75rem;margin-top:0.875rem;">
+        <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+          <div style="width:30px;height:30px;background:var(--gray-100);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gray-600);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.15rem;">SOC 2</div><div style="font-size:12px;color:var(--gray-600);line-height:1.5;">Service Organisation Control 2, the US standard for security, availability, and confidentiality. In progress.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+          <div style="width:30px;height:30px;background:var(--gray-100);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gray-600);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.15rem;">GDPR</div><div style="font-size:12px;color:var(--gray-600);line-height:1.5;">General Data Protection Regulation compliance for European operations. In progress.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+          <div style="width:30px;height:30px;background:var(--gray-100);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gray-600);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.15rem;">ISO 13485</div><div style="font-size:12px;color:var(--gray-600);line-height:1.5;">International standard for medical device quality management systems. In progress.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+          <div style="width:30px;height:30px;background:var(--gray-100);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gray-600);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.15rem;">TGA</div><div style="font-size:12px;color:var(--gray-600);line-height:1.5;">Therapeutic Goods Administration (Australia) registration for relevant Bodd modules. In progress.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+          <div style="width:30px;height:30px;background:var(--gray-100);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gray-600);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.15rem;">FDA</div><div style="font-size:12px;color:var(--gray-600);line-height:1.5;">US Food and Drug Administration clearance for relevant Bodd modules. In progress.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+          <div style="width:30px;height:30px;background:var(--gray-100);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gray-600);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.15rem;">CE Mark</div><div style="font-size:12px;color:var(--gray-600);line-height:1.5;">European conformity marking for relevant Bodd modules. In progress.</div></div>
+        </div>
+      </div>
+
+    <hr class="div">
+    <h2>Infrastructure.</h2>
+    <div style="background:var(--gray-50);border:0.5px solid var(--gray-200);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;display:flex;align-items:flex-start;gap:1.25rem;">
+      <div style="width:40px;height:40px;background:var(--bg-card);border:0.5px solid var(--gray-200);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gray-800);"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+      </div>
+      <div>
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.4rem;flex-wrap:wrap;">
+          <strong style="font-size:14px;">Amazon Web Services — Select Technology Partner</strong>
+          <span style="font-size:11px;background:var(--gray-200);color:var(--gray-800);padding:2px 8px;border-radius:20px;font-weight:500;letter-spacing:0.03em;">AWS Partner Network</span>
+        </div>
+        <p style="font-size:14px;color:var(--gray-800);line-height:1.65;margin:0;">Bodd is an AWS Select Technology Partner — a formally recognised tier within the AWS Partner Network, validated against AWS standards for technical capability and customer success. Our regional sovereignty commitments are backed by dedicated AWS infrastructure in every major geography we operate in. Your data never leaves its designated jurisdiction.</p>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0.75rem;margin-top:0.875rem;">
+        <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+          <div style="width:30px;height:30px;background:var(--gray-100);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gray-600);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.15rem;">Encryption in transit and at rest</div><div style="font-size:12px;color:var(--gray-600);line-height:1.5;">All data encrypted using AES-256 at rest and TLS 1.2+ in transit.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+          <div style="width:30px;height:30px;background:var(--gray-100);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gray-600);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.15rem;">Role-based access controls</div><div style="font-size:12px;color:var(--gray-600);line-height:1.5;">Strict controls govern who within your organisation can access what data, and when.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+          <div style="width:30px;height:30px;background:var(--gray-100);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gray-600);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg></div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.15rem;">Audit logging</div><div style="font-size:12px;color:var(--gray-600);line-height:1.5;">All data access and system activity is logged and available for review.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:0.75rem;">
+          <div style="width:30px;height:30px;background:var(--gray-100);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gray-600);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg></div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.15rem;">Regional instances</div><div style="font-size:12px;color:var(--gray-600);line-height:1.5;">Dedicated infrastructure per region — no data co-mingling across client instances.</div></div>
+        </div>
+      </div>
+
+    <hr class="div">
+    <div class="card-gray" style="padding:1.75rem;">
+      <h4 style="margin-bottom:0.5rem;">A note on Bodd Vitals</h4>
+      <p style="font-size:14px;color:var(--gray-600);line-height:1.7;">Bodd Vitals captures key wellness indicators — standing blood pressure, heart rate, heart rate variability, and breathing rate — non-invasively during the scan process. These are presented as wellness tracking data points, not clinically validated medical readings. Bodd Vitals is currently pursuing TGA, FDA, and CE Mark registration. Current deployments operate as precision wellness tracking tools.</p>
+    </div>
+
+    <hr class="div">
+    <h2>Questions or concerns?</h2>
+    <p class="body-text">Whether you're an enterprise evaluator, an existing customer, or an individual who has been scanned — we're here to help.</p>
+    <div class="grid-3" style="margin-top:1.5rem;">
+      <div class="card-gray" style="padding-top:1rem;"><div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div><h4>Privacy enquiries</h4><p><a href="mailto:privacy@bodd.com">privacy@bodd.com</a></p></div>
+      <div class="card-gray" style="padding-top:1rem;"><div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><h4>Security & compliance</h4><p>Contact your Bodd account manager or reach us via <span style="cursor:pointer;color:var(--blue-dark);" onclick="window.location.href='contact.html'">bodd.com/contact</span></p></div>
+      <div class="card-gray" style="padding-top:1rem;"><div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div><h4>Individual data requests</h4><p><a href="mailto:privacy@bodd.com">privacy@bodd.com</a></p></div>
+    </div>
+  </div>
+  <div style="background:var(--black);color:var(--white);padding:3rem 2rem;">
+    <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+      <div style="flex:1;min-width:280px;">
+        <h2 style="font-size:28px;font-weight:500;line-height:1.2;letter-spacing:-0.01em;color:var(--white);margin-bottom:0.75rem;">Questions about data, privacy, or security?</h2>
+        <p style="font-size:15px;color:#999;line-height:1.65;margin:0;">Our team is happy to walk you through our architecture, certifications, and data practices in detail.</p>
+      </div>
+      <div style="flex-shrink:0;">
+        <span class="btn" onclick="window.location.href='contact.html'" style="background:var(--bg-card);color:var(--white);font-size:14px;padding:14px 28px;border-radius:24px;cursor:pointer;">Get in Touch</span>
+      </div>
+    </div>
+  </div>
+
+<footer>
+  <div class="footer-inner">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:3rem;">
+      <div style="display:flex;flex-direction:column;">
+        <div class="footer-logo">Bodd</div>
+        <p class="footer-desc">The enterprise body intelligence platform. Built in Melbourne. Deployed globally.</p>
+        <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:5px;">
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;">PCIAW Technology Award 2025</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;">NAUMD Best Uniform Sizing Technology 2025</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;">Financial Review Most Innovative Company</div>
+        </div>
+        <div style="margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:5px;padding-top:2rem;">
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;justify-content:center;">Great Place<br>to Work®</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;justify-content:center;">MSIA<br>Member</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;justify-content:center;">Australian<br>Made</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Uniforms</h5>
+        <a href="uniforms.html">Overview</a>
+        <a href="defence.html">Defence & Military</a>
+        <a href="police.html">Police & Law Enforcement</a>
+        <a href="fire.html">Fire & Rescue</a>
+        <a href="ambulance.html">Ambulance & Paramedics</a>
+        <a href="aviation.html">Aviation</a>
+        <a href="themeparks.html">Theme Parks & Entertainment</a>
+        <a href="ballistics.html">Ballistics & Armour</a>
+        <a href="workwear.html">Workwear & Industrial</a>
+        <h5 style="margin-top:1.5rem;">Retail</h5>
+        <a href="retail.html">Overview</a>
+        <a href="tailoring.html">Tailoring & MTM</a>
+        <a href="sporting.html">High-Function & Sporting</a>
+      </div>
+      <div class="footer-col">
+        <h5>Health & Wellness</h5>
+        <a href="health.html">Overview</a>
+        <a href="pharmacy.html">Retail Pharmacy</a>
+        <a href="weightloss.html">Weight Management</a>
+        <a href="gyms.html">Gyms & Fitness</a>
+        <a href="longevity.html">Longevity & Wellness</a>
+        <a href="clinical.html">Allied Health & GP</a>
+        <a href="defencehealth.html">Defence Health</a>
+        <a href="corporate.html">Corporate Wellness</a>
+        <h5 style="margin-top:1.5rem;">Consumer</h5>
+        <a href="mybodd.html">MyBodd</a>
+      </div>
+      <div class="footer-col">
+        <h5>How it works</h5>
+        <a href="howitworks.html">Overview</a>
+        <a href="platform.html">The Platform</a>
+        <a href="technology.html">Product &amp; Technology</a>
+        <a href="security.html">Data &amp; Security</a>
+        <h5 style="margin-top:1.5rem;">Company</h5>
+        <a href="about.html">About</a>
+        <a href="news.html">News</a>
+        <a href="press.html">Press &amp; Media</a>
+        <a href="contact.html">Contact</a>
+        <a href="careers.html">Work With Us</a>
+        <a href="investors.html">Investors</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Bodd Holdings Limited ABN 48 613 290 234. All rights reserved.</p>
+      <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+        <div onclick="showRegionModal()" style="display:flex;align-items:center;gap:0.5rem;font-size:12px;cursor:pointer;white-space:nowrap;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#555;flex-shrink:0;"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span id="footer-region-label" style="color:var(--white);font-weight:500;">AU / NZ</span>
+          <span style="color:#555;font-size:11px;">▾</span>
+        </div>
+        <p style="white-space:nowrap;"><a onclick="window.location.href='privacy.html'" style="color:var(--gray-400);cursor:pointer;">Privacy Policy</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

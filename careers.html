@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work With Us — Bodd</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- Region selector modal -->
+<div id="region-modal" style="position:fixed;inset:0;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);z-index:9999;display:none;align-items:center;justify-content:center;padding:1.5rem;-webkit-overflow-scrolling:touch;">
+  <div style="background:var(--bg-card);border-radius:16px;padding:2.5rem 2rem;max-width:380px;width:100%;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,0.2);">
+    <div style="width:44px;height:44px;background:var(--gray-50);border:0.5px solid var(--gray-200);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+    </div>
+    <h3 style="font-size:20px;font-weight:500;letter-spacing:-0.02em;margin-bottom:0.5rem;">Select your region</h3>
+    <p style="font-size:13px;color:var(--gray-500);line-height:1.6;margin-bottom:1.75rem;">Regulatory information and product availability may vary by region.</p>
+    <div style="display:flex;flex-direction:column;gap:0.625rem;">
+      <button onclick="selectRegion('au')" style="width:100%;padding:0.875rem 1rem;background:var(--black);color:var(--white);border:none;border-radius:10px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:space-between;">
+        <span>Australia & New Zealand</span>
+        <span style="font-size:12px;opacity:0.5;">TGA registered</span>
+      </button>
+      <button onclick="selectRegion('us')" style="width:100%;padding:0.875rem 1rem;background:var(--gray-50);color:var(--white);border:0.5px solid var(--gray-200);border-radius:10px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:space-between;">
+        <span>United States</span>
+        <span style="font-size:12px;color:var(--gray-400);">FDA — in progress</span>
+      </button>
+      <button onclick="selectRegion('eu')" style="width:100%;padding:0.875rem 1rem;background:var(--gray-50);color:var(--white);border:0.5px solid var(--gray-200);border-radius:10px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;display:flex;align-items:center;justify-content:space-between;">
+        <span>Europe</span>
+        <span style="font-size:12px;color:var(--gray-400);">CE Mark — in progress</span>
+      </button>
+    </div>
+    <p style="font-size:11px;color:var(--gray-400);margin-top:1.25rem;">You can change your region at any time from the footer.</p>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-logo-wrap">
+    <div class="nav-logo" onclick="window.location.href='index.html'">Bodd</div>
+    <div class="dropdown" style="left:0;">
+      <div class="dropdown-inner" style="min-width:170px;">
+        <a href="index.html">Homepage — v1</a>
+        <a href="index_2.html">Homepage — v2</a>
+        <a href="index_3.html">Homepage — v3</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-inner">
+  <div class="nav-main">
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='uniforms.html'">Uniforms</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="defence.html">Defence &amp; Military</a>
+          <a href="police.html">Police &amp; Law Enforcement</a>
+          <a href="fire.html">Fire &amp; Rescue</a>
+          <a href="ambulance.html">Ambulance &amp; Paramedics</a>
+          <a href="aviation.html">Aviation</a>
+          <a href="themeparks.html">Theme Parks &amp; Entertainment</a>
+          <a href="ballistics.html">Ballistics &amp; Armour</a>
+          <a href="workwear.html">Workwear &amp; Industrial</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='retail.html'">Retail</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="tailoring.html">Tailoring & MTM</a>
+          <a href="sporting.html">High-Function & Sporting Apparel</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='health.html'">Health & Wellness</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="pharmacy.html">Retail Pharmacy</a>
+          <a href="weightloss.html">Weight Management</a>
+          <a href="gyms.html">Gyms & Fitness Centres</a>
+          <a href="longevity.html">Longevity & Wellness Centres</a>
+          <a href="clinical.html">Allied Health & GP Clinics</a>
+          <a href="defencehealth.html">Defence & Military Health</a>
+          <a href="corporate.html">Corporate Wellness</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='howitworks.html'">How it works</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="platform.html">The Platform</a>
+          <a href="technology.html">Product & Technology</a>
+          <a href="security.html">Data & Security</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <span class="nav-link" onclick="window.location.href='about.html'">About</span>
+      <div class="dropdown">
+        <div class="dropdown-inner">
+          <a href="about.html">About Bodd</a>
+          <a href="careers.html">Careers</a>
+          <a href="news.html">News</a>
+          <a href="press.html">Press &amp; Media</a>
+        </div>
+      </div>
+    </div>
+    <span class="nav-link" onclick="window.location.href='contact.html'">Contact</span>
+    <a class="nav-mybodd" href="mybodd.html"><svg width="12" height="20" viewBox="0 0 28 46" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="5" r="4.5"/><rect x="9" y="11" width="10" height="17" rx="3"/><rect class="bi-leg-l" x="8.5" y="26" width="4.5" height="19" rx="2.25"/><rect class="bi-leg-r" x="15" y="26" width="4.5" height="19" rx="2.25"/><rect class="bi-arm-l" x="-3" y="12" width="11" height="4" rx="2"/><rect class="bi-arm-r" x="20" y="12" width="11" height="4" rx="2"/></svg>MyBodd</a>
+  </div>
+  </div><!-- /nav-inner -->
+  <div class="nav-right">
+    <div class="nav-item">
+      <span class="nav-login">Log in</span>
+      <div class="dropdown" style="left:auto;right:0;">
+        <div class="dropdown-inner" style="min-width:150px;">
+          <a href="https://hub.bodd.com" target="_blank">BoddHub</a>
+          <a href="https://my.bodd.com" target="_blank">MyBodd</a>
+        </div>
+      </div>
+    </div>
+    <span class="nav-cta" onclick="window.location.href='demo.html'">Book a Demo</span>
+  </div>
+
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-inner">
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>Uniforms</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="uniforms.html">Overview</a>
+        <div class="sub-label">Sectors</div>
+        <a href="defence.html">Defence & Military</a>
+        <a href="police.html">Police & Law Enforcement</a>
+        <a href="fire.html">Fire & Rescue</a>
+        <a href="ambulance.html">Ambulance & Paramedics</a>
+        <a href="aviation.html">Aviation</a>
+        <a href="themeparks.html">Theme Parks & Entertainment</a>
+        <a href="ballistics.html">Ballistics & Armour</a>
+        <a href="workwear.html">Workwear & Industrial</a>
+      </div>
+    </div>
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>Retail</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="retail.html">Overview</a>
+        <div class="sub-label">Sectors</div>
+        <a href="tailoring.html">Tailoring & MTM</a>
+        <a href="sporting.html">High-Function & Sporting Apparel</a>
+      </div>
+    </div>
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>Health & Wellness</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="health.html">Overview</a>
+        <div class="sub-label">Sectors</div>
+        <a href="pharmacy.html">Retail Pharmacy</a>
+        <a href="weightloss.html">Weight Management</a>
+        <a href="gyms.html">Gyms & Fitness Centres</a>
+        <a href="longevity.html">Longevity & Wellness Centres</a>
+        <a href="clinical.html">Allied Health & GP Clinics</a>
+        <a href="defencehealth.html">Defence & Military Health</a>
+        <a href="corporate.html">Corporate Wellness</a>
+      </div>
+    </div>
+
+    <div class="mobile-section">
+      <div class="mobile-section-header" onclick="toggleSection(this)">
+        <span>How it works</span><span class="chevron">▼</span>
+      </div>
+      <div class="mobile-section-links">
+        <a href="howitworks.html">Overview</a>
+        <a href="platform.html">The Platform</a>
+        <a href="technology.html">Product & Technology</a>
+        <a href="security.html">Data & Security</a>
+      </div>
+    </div>
+
+    <a class="mobile-top-link" href="about.html">About</a>
+    <a class="mobile-top-link" href="contact.html">Contact</a>
+    <a class="mobile-top-link" href="mybodd.html">MyBodd</a>
+    <a class="mobile-cta" href="demo.html">Book a Demo</a>
+
+  </div>
+</div>
+
+<div class="hero">
+    <div class="breadcrumb"><span onclick="window.location.href='index.html'">Home</span> / <span onclick="window.location.href='about.html'">About</span> / Work With Us</div>
+    <h1>We hire for values as much as skills.</h1>
+    <p>Bodd is a Great Place to Work® certified organisation building something genuinely new in the world. If you want to do the best work of your career alongside people who care deeply about getting it right — read on.</p>
+  </div>
+
+  <div class="section">
+
+    <h2>What we're looking for.</h2>
+    <p class="body-text">We're a small team doing something ambitious. That means we need people who can operate with a high degree of autonomy, who take real ownership of their work, and who are energised — not intimidated — by problems that don't have obvious answers yet. Technical skills matter. Values matter more. You can learn a tool. You can't learn to give a damn.</p>
+
+    <div class="grid-3" style="margin-top:2rem;">
+      <div class="card-gray" style="padding-top:1.25rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal-dark);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg></div>
+        <h4>Ownership</h4>
+        <p style="font-size:13px;color:var(--gray-600);line-height:1.6;margin:0;">We take real pride and responsibility in growing this business. When something goes wrong, we own it. When something goes right, we share it. We don't do blame culture or credit-grabbing.</p>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal-dark);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></div>
+        <h4>Creative problem solvers</h4>
+        <p style="font-size:13px;color:var(--gray-600);line-height:1.6;margin:0;">Curiosity drives us. We ask questions before we assume answers, experiment constantly, and learn always. If you need a playbook for every decision, this probably isn't the place for you.</p>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal-dark);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
+        <h4>Good human beings</h4>
+        <p style="font-size:13px;color:var(--gray-600);line-height:1.6;margin:0;">Tight-knit. Honest. Always respectful. No arrogance. We don't have time for jerks, even brilliant ones. If you treat people well regardless of their title, you'll fit right in.</p>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal-dark);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h4>Courageous & humble</h4>
+        <p style="font-size:13px;color:var(--gray-600);line-height:1.6;margin:0;">Comfortable with the unknown. Optimism is essential. False bravado and arrogance are not tolerated. We want people who back themselves without losing sight of what they don't yet know.</p>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal-dark);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <h4>High performing & trusted</h4>
+        <p style="font-size:13px;color:var(--gray-600);line-height:1.6;margin:0;">A-grade team. Trust without micro-management. The organisations we work with demand nothing less — and so do we. We set a high bar and we hold each other to it, with respect.</p>
+      </div>
+      <div class="card-gray" style="padding-top:1.25rem;">
+        <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:var(--teal-dark);"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></div>
+        <h4>Love work, love life</h4>
+        <p style="font-size:13px;color:var(--gray-600);line-height:1.6;margin:0;">Proud of what we do. We prioritise happiness, physical and mental wellbeing. Great Place to Work® certified — not because we put it on the website, but because our people actually said so.</p>
+      </div>
+    </div>
+
+    <hr class="div">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+      <div>
+        <h2>Don't see your role?</h2>
+        <p class="body-text" style="margin-top:0.75rem;">We're always interested in exceptional people — even when we don't have an active role that fits. If you think you belong here, send us a note. Tell us who you are, what you do, and why Bodd.</p>
+        <p style="font-size:12px;color:var(--gray-400);margin-top:1.5rem;line-height:1.6;">We read every application. We aim to respond within five business days.</p>
+        <div style="background:var(--gray-50);border:0.5px solid var(--gray-200);border-radius:var(--radius);padding:1.75rem;margin-top:2rem;">
+          <div style="width:36px;height:36px;background:var(--teal-light);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--teal-dark);margin-bottom:0.75rem;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <h4 style="margin-bottom:0.5rem;">Great Place to Work® certified</h4>
+          <p style="font-size:14px;color:var(--gray-600);line-height:1.65;margin-bottom:0.75rem;">Not because we put it on the website. Because our people said so. Bodd is independently certified by Great Place to Work® — the global authority on workplace culture.</p>
+          <p style="font-size:14px;color:var(--gray-600);line-height:1.65;margin:0;">Built in Melbourne. Deployed globally. A team that believes in what they're building.</p>
+        </div>
+      </div>
+      <div>
+        <div id="careers-form" style="background:var(--gray-50);border:0.5px solid var(--gray-200);border-radius:var(--radius);padding:2rem;">
+          <h4 style="margin-bottom:0.25rem;">Express your interest</h4>
+          <p style="font-size:13px;color:var(--gray-600);margin-bottom:1.5rem;line-height:1.5;">Tell us who you are and what you're great at.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.875rem;margin-bottom:0.875rem;">
+            <div>
+              <label style="font-size:12px;font-weight:500;color:var(--gray-600);display:block;margin-bottom:0.375rem;">First name</label>
+              <input id="cf-first" type="text" placeholder="Jane" style="width:100%;box-sizing:border-box;background:var(--bg-card);border:1px solid var(--gray-200);border-radius:8px;padding:10px 12px;font-size:14px;color:var(--white);font-family:inherit;outline:none;">
+            </div>
+            <div>
+              <label style="font-size:12px;font-weight:500;color:var(--gray-600);display:block;margin-bottom:0.375rem;">Last name</label>
+              <input id="cf-last" type="text" placeholder="Smith" style="width:100%;box-sizing:border-box;background:var(--bg-card);border:1px solid var(--gray-200);border-radius:8px;padding:10px 12px;font-size:14px;color:var(--white);font-family:inherit;outline:none;">
+            </div>
+          </div>
+          <div style="margin-bottom:0.875rem;">
+            <label style="font-size:12px;font-weight:500;color:var(--gray-600);display:block;margin-bottom:0.375rem;">Email address</label>
+            <input id="cf-email" type="email" placeholder="jane@example.com" style="width:100%;box-sizing:border-box;background:var(--bg-card);border:1px solid var(--gray-200);border-radius:8px;padding:10px 12px;font-size:14px;color:var(--white);font-family:inherit;outline:none;">
+          </div>
+          <div style="margin-bottom:0.875rem;">
+            <label style="font-size:12px;font-weight:500;color:var(--gray-600);display:block;margin-bottom:0.375rem;">Area of interest</label>
+            <select id="cf-area" style="width:100%;box-sizing:border-box;background:var(--bg-card);border:1px solid var(--gray-200);border-radius:8px;padding:10px 12px;font-size:14px;color:var(--white);font-family:inherit;outline:none;appearance:none;cursor:pointer;">
+              <option value="" disabled selected>Select a discipline</option>
+              <option>Engineering & Technology</option>
+              <option>Product & Design</option>
+              <option>Commercial & Sales</option>
+              <option>Customer Success</option>
+              <option>Operations</option>
+              <option>Marketing</option>
+              <option>Finance & Legal</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div style="margin-bottom:1.25rem;">
+            <label style="font-size:12px;font-weight:500;color:var(--gray-600);display:block;margin-bottom:0.375rem;">Tell us about yourself</label>
+            <textarea id="cf-message" rows="4" placeholder="Who you are, what you do, and why Bodd." style="width:100%;box-sizing:border-box;background:var(--bg-card);border:1px solid var(--gray-200);border-radius:8px;padding:10px 12px;font-size:14px;color:var(--white);font-family:inherit;outline:none;resize:vertical;line-height:1.5;"></textarea>
+          </div>
+          <div id="careers-form-submit">
+            <span class="btn btn-primary" style="width:100%;box-sizing:border-box;text-align:center;display:block;" onclick="submitEOI()">Send expression of interest →</span>
+          </div>
+          <div id="careers-form-confirm" style="display:none;text-align:center;padding:1rem 0;">
+            <div style="width:44px;height:44px;background:rgba(43,127,255,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p style="font-size:14px;font-weight:500;color:var(--white);margin-bottom:0.25rem;">Thanks — we'll be in touch.</p>
+            <p style="font-size:13px;color:var(--gray-600);">We aim to respond within five business days.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<footer>
+  <div class="footer-inner">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:3rem;">
+      <div style="display:flex;flex-direction:column;">
+        <div class="footer-logo">Bodd</div>
+        <p class="footer-desc">The enterprise body intelligence platform. Built in Melbourne. Deployed globally.</p>
+        <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:5px;">
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;">PCIAW Technology Award 2025</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;">NAUMD Best Uniform Sizing Technology 2025</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;">Financial Review Most Innovative Company</div>
+        </div>
+        <div style="margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:5px;padding-top:2rem;">
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;justify-content:center;">Great Place<br>to Work®</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;justify-content:center;">MSIA<br>Member</div>
+          <div class="cert" style="background:#1a2a20;color:#5DCAA5;border-color:#0F6E56;justify-content:center;">Australian<br>Made</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Uniforms</h5>
+        <a href="uniforms.html">Overview</a>
+        <a href="defence.html">Defence & Military</a>
+        <a href="police.html">Police & Law Enforcement</a>
+        <a href="fire.html">Fire & Rescue</a>
+        <a href="ambulance.html">Ambulance & Paramedics</a>
+        <a href="aviation.html">Aviation</a>
+        <a href="themeparks.html">Theme Parks & Entertainment</a>
+        <a href="ballistics.html">Ballistics & Armour</a>
+        <a href="workwear.html">Workwear & Industrial</a>
+        <h5 style="margin-top:1.5rem;">Retail</h5>
+        <a href="retail.html">Overview</a>
+        <a href="tailoring.html">Tailoring & MTM</a>
+        <a href="sporting.html">High-Function & Sporting</a>
+      </div>
+      <div class="footer-col">
+        <h5>Health & Wellness</h5>
+        <a href="health.html">Overview</a>
+        <a href="pharmacy.html">Retail Pharmacy</a>
+        <a href="weightloss.html">Weight Management</a>
+        <a href="gyms.html">Gyms & Fitness</a>
+        <a href="longevity.html">Longevity & Wellness</a>
+        <a href="clinical.html">Allied Health & GP</a>
+        <a href="defencehealth.html">Defence Health</a>
+        <a href="corporate.html">Corporate Wellness</a>
+        <h5 style="margin-top:1.5rem;">Consumer</h5>
+        <a href="mybodd.html">MyBodd</a>
+      </div>
+      <div class="footer-col">
+        <h5>How it works</h5>
+        <a href="howitworks.html">Overview</a>
+        <a href="platform.html">The Platform</a>
+        <a href="technology.html">Product &amp; Technology</a>
+        <a href="security.html">Data &amp; Security</a>
+        <h5 style="margin-top:1.5rem;">Company</h5>
+        <a href="about.html">About</a>
+        <a href="news.html">News</a>
+        <a href="press.html">Press &amp; Media</a>
+        <a href="contact.html">Contact</a>
+        <a href="careers.html">Work With Us</a>
+        <a href="investors.html">Investors</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Bodd Holdings Limited ABN 48 613 290 234. All rights reserved.</p>
+      <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+        <div onclick="showRegionModal()" style="display:flex;align-items:center;gap:0.5rem;font-size:12px;cursor:pointer;white-space:nowrap;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:#555;flex-shrink:0;"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span id="footer-region-label" style="color:var(--white);font-weight:500;">AU / NZ</span>
+          <span style="color:#555;font-size:11px;">▾</span>
+        </div>
+        <p style="white-space:nowrap;"><a onclick="window.location.href='privacy.html'" style="color:var(--gray-400);cursor:pointer;">Privacy Policy</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+<script>
+function submitEOI() {
+  var first = document.getElementById('cf-first').value.trim();
+  var email = document.getElementById('cf-email').value.trim();
+  if (!first || !email) {
+    alert('Please enter your name and email address.');
+    return;
+  }
+  document.getElementById('careers-form-submit').style.display = 'none';
+  document.getElementById('careers-form-confirm').style.display = 'block';
+}
+</script>
+</body>
+</html>
